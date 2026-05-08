@@ -12,5 +12,5 @@ class Arteza {
   async goto() {
     await this.page.goto('https://applitools.arteza.es');
   }
-
+}
 module.exports = { Arteza };
