@@ -8,8 +8,6 @@ on:
 jobs:
   test:
 
-    runs-on: Test-GitHub-Runner
-
     runs-on: self-hosted
 
     steps:
