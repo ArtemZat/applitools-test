@@ -47,6 +47,4 @@ test('Arteza', async ({ page, eyes }) => {
   await page.getByRole('link', { name: 'INICIO', exact: true }).click();
   await eyes.check('Menu inicio')
 
-
-
 });
