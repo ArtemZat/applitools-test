@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: Test-GitHub-Runner
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v4
 
