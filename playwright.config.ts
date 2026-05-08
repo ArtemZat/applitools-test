@@ -13,6 +13,7 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig<EyesFixture>({
+  timeout: 90000,
   testDir: './e2e',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -39,7 +40,7 @@ export default defineConfig<EyesFixture>({
       // proxy: {url: 'http://127.0.0.1:8888'},
       // stitchMode: 'CSS',
       // matchTimeout: 0,
-      // waitBeforeScreenshots: 50,
+      waitBeforeScreenshots: 60,
       // saveNewTests: true,
     },
 
