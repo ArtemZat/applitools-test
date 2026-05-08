@@ -1,0 +1,95 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>arteza.es/</id>
+  <title>Artem</title>
+  <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
+  <updated>2026-05-08T09:32:56+02:00</updated>
+  <author>
+    <name>Artem Zatsarnyi</name>
+    <uri>arteza.es/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="arteza.es/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="es-ES"
+    href="arteza.es/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2026 Artem Zatsarnyi </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>EN CURSO Traefik - proxy inverso</title>
+    <link href="arteza.es/posts/traefik/" rel="alternate" type="text/html" title="EN CURSO Traefik - proxy inverso" />
+    <published>2026-01-03T20:00:01+01:00</published>
+  
+    <updated>2026-01-03T20:00:01+01:00</updated>
+  
+    <id>arteza.es/posts/traefik/</id>
+    <content type="text/html" src="arteza.es/posts/traefik/" />
+    <author>
+      <name>Artem Zatsarnyi</name>
+    </author>
+
+  
+    
+    <category term="homelab" />
+    
+  
+
+  <summary>1. ¿Que es un proxy inverso?  Proxy inverso es un servidor intermediario que se sitúa delante de uno o varios servidores web y recibe las peticiones de los clientes  En lugar de que el cliente se comunique directamente con el servidor real, habla con el proxy inverso, y este se encarga de reenviar la solicitud al servidor adecuado y devolver la respuesta.  2. ¿Que es Traefik y para que sirve?  ...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Transferir gestión de dominio a Cloudflare</title>
+    <link href="arteza.es/posts/transfer-domain-to-cloudflare/" rel="alternate" type="text/html" title="Transferir gestión de dominio a Cloudflare" />
+    <published>2026-01-03T20:00:00+01:00</published>
+  
+    <updated>2026-01-03T20:00:00+01:00</updated>
+  
+    <id>arteza.es/posts/transfer-domain-to-cloudflare/</id>
+    <content type="text/html" src="arteza.es/posts/transfer-domain-to-cloudflare/" />
+    <author>
+      <name>Artem Zatsarnyi</name>
+    </author>
+
+  
+    
+    <category term="DNS" />
+    
+  
+
+  <summary>1. ¿Que es Cloudflare?  Cloudflare es una empresa líder en servicios de seguridad, rendimiento y confiabilidad en Internet. Ayuda a proteger y acelerar sitios web, aplicaciones y redes mediante una plataforma global que mejora la velocidad, la disponibilidad y la seguridad frente a amenazas digitales.  Cloudflare ofrece muchos servicios, de ellos son:    Seguridad avanzada contra ataques DDoS y...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>Markdown - lenguaje de marcado ligero</title>
+    <link href="arteza.es/posts/about-markdown/" rel="alternate" type="text/html" title="Markdown - lenguaje de marcado ligero" />
+    <published>2025-12-26T23:11:00+01:00</published>
+  
+    <updated>2025-12-26T23:11:00+01:00</updated>
+  
+    <id>arteza.es/posts/about-markdown/</id>
+    <content type="text/html" src="arteza.es/posts/about-markdown/" />
+    <author>
+      <name>Artem Zatsarnyi</name>
+    </author>
+
+  
+    
+    <category term="lenguaje" />
+    
+  
+
+  <summary>1. ¿Qué es Markdown y para que sirve?  Markdown es un lenguaje de marcado ligero creado para permitir la escritura y formato de  texto sencillo y fácil de leer en la web.     Una de las ventajas de Markdown es que soporta todo que tiene HTML. En Markdown puedo escribir a la vez con sintaxis Markdown y HTML.    Texto escribe sin etiquetas y mas facil aprender que en HTML.   2. Syntaxis basico de...</summary>
+
+  </entry>
+
+</feed>
+
+
