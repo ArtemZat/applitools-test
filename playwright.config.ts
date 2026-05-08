@@ -33,7 +33,7 @@ export default defineConfig<EyesFixture>({
       // serverUrl: 'https://eyes.applitools.com',
 
       // failTestsOnDiff: false,
-      // appName: 'My App',
+      appName: 'applitools.arteza.es',
       // matchLevel: 'Strict',
       // batch: { name: 'My Batch' },
       // proxy: {url: 'http://127.0.0.1:8888'},
