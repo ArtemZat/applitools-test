@@ -7,11 +7,11 @@ on:
 
 jobs:
   test:
-<<<<<<< HEAD
+
     runs-on: Test-GitHub-Runner
-=======
+
     runs-on: self-hosted
->>>>>>> 4508b886f2756209e76cd0a7b2f4c80decc54518
+
     steps:
     - uses: actions/checkout@v4
 
