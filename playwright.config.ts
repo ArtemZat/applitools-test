@@ -32,7 +32,6 @@ export default defineConfig<EyesFixture>({
       /* The following and other configuration parameters are documented at: https://applitools.com/tutorials/playwright/api/overview */
       apiKey: process.env.APPLITOOLS_API_KEY, // alternatively, set this via environment variable APPLITOOLS_API_KEY
       // serverUrl: 'https://eyes.applitools.com',
-
       // failTestsOnDiff: false,
       appName: 'applitools.arteza.es',
       // matchLevel: 'Strict',
@@ -41,6 +40,7 @@ export default defineConfig<EyesFixture>({
       // stitchMode: 'CSS',
       // matchTimeout: 0,
       waitBeforeScreenshots: 3000,
+      layoutBreakpoints: true, 
       // saveNewTests: true,
     },
 
