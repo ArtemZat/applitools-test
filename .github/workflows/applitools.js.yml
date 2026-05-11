@@ -28,7 +28,7 @@ jobs:
     - name: Run Playwright tests
       env:
         APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
-      run: npx playwright test -j
+      run: npx playwright test
 
     - uses: actions/upload-artifact@v4
       if: always()
