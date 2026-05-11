@@ -2,7 +2,7 @@
 layout: post
 title: "Transferir gestión de dominio a Cloudflare"
 date: 2026-01-03 20:00:00 0100
-categories: DNS
+categories: DNS.
 tags: dominio cloudflare
 image:
   path: /assets/posts/2026-01-03-transfer-domain-to-cloudflare/header.webp
