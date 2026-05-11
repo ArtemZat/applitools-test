@@ -19,7 +19,7 @@ test('Arteza', async ({ page, eyes }) => {
       await currentPost.click();
 
       await page.waitForLoadState('networkidle');
-      await page.waitForTimeout(1000);
+//      await page.waitForTimeout(1000);
 
 //      await eyes.check(`Post: ${title}`, Target.window().layout())
       await eyes.check(`Post: ${title}`)
@@ -29,26 +29,27 @@ test('Arteza', async ({ page, eyes }) => {
   }
 
   await page.getByRole('link', { name: 'CATEGORÍAS' }).click();
+  await page.waitForLoadState('networkidle');
   await eyes.check('Menu categorias')
-  await page.goBack();
 
   await page.getByRole('link', { name: 'ETIQUETAS' }).click();
+  await page.waitForLoadState('networkidle');
   await eyes.check('Menu etiquetas')
-  await page.goBack();
 
   await page.getByRole('link', { name: 'ARCHIVO' }).click();
+  await page.waitForLoadState('networkidle');
   await eyes.check('Menu archivo')
-  await page.goBack();
 
   await page.getByRole('link', { name: 'DONAR' }).click();
+  await page.waitForLoadState('networkidle');
   await eyes.check('Menu donar')
-  await page.goBack();
 
   await page.getByRole('link', { name: 'SOBRE MÍ' }).click();
+  await page.waitForLoadState('networkidle');
   await eyes.check('Menu sobre mi')
-  await page.goBack();
 
   await page.getByRole('link', { name: 'INICIO', exact: true }).click();
+  await page.waitForLoadState('networkidle');
   await eyes.check('Menu inicio')
 
 });
