@@ -37,7 +37,7 @@ export default defineConfig<EyesFixture>({
       // matchLevel: 'Strict',
       // batch: { name: 'My Batch' },
       // proxy: {url: 'http://127.0.0.1:8888'},
-      // stitchMode: 'CSS',
+      stitchMode: 'CSS',
       // matchTimeout: 0,
       waitBeforeScreenshots: 3000,
       layoutBreakpoints: true, 
