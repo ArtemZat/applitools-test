@@ -19,7 +19,7 @@ test('Arteza', async ({ page, eyes }) => {
       await currentPost.click();
 
       await page.waitForLoadState('networkidle');
-      await age.waitForTimeout(1000);
+      await page.waitForTimeout(1000);
 
 //      await eyes.check(`Post: ${title}`, Target.window().layout())
       await eyes.check(`Post: ${title}`)
