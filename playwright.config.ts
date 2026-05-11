@@ -39,7 +39,7 @@ export default defineConfig<EyesFixture>({
       // proxy: {url: 'http://127.0.0.1:8888'},
       stitchMode: 'CSS',
       // matchTimeout: 0,
-      waitBeforeScreenshots: 3000,
+      waitBeforeScreenshots: 6000,
       layoutBreakpoints: true, 
       // saveNewTests: true,
     },
