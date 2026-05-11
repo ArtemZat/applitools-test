@@ -41,6 +41,8 @@ export default defineConfig<EyesFixture>({
       // matchTimeout: 0,
       waitBeforeScreenshots: 6000,
       layoutBreakpoints: true, 
+      actionTimeout: 15000,
+      navigationTimeout: 30000,
       // saveNewTests: true,
     },
 

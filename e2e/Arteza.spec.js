@@ -17,8 +17,12 @@ test('Arteza', async ({ page, eyes }) => {
 
     await test.step(`Comprobasión de post: ${title}`, async () => {
       await currentPost.click();
-      
-      await eyes.check('Post: ${title}')
+
+      await page.waitForLoadState('networkidle');
+      await age.waitForTimeout(1000);
+
+//      await eyes.check(`Post: ${title}`, Target.window().layout())
+      await eyes.check(`Post: ${title}`)
 
       await page.goBack(); // Возвращаемся в список для следующей итерации
     });
@@ -31,7 +35,7 @@ test('Arteza', async ({ page, eyes }) => {
   await page.getByRole('link', { name: 'ETIQUETAS' }).click();
   await eyes.check('Menu etiquetas')
   await page.goBack();
-   
+
   await page.getByRole('link', { name: 'ARCHIVO' }).click();
   await eyes.check('Menu archivo')
   await page.goBack();
@@ -39,11 +43,11 @@ test('Arteza', async ({ page, eyes }) => {
   await page.getByRole('link', { name: 'DONAR' }).click();
   await eyes.check('Menu donar')
   await page.goBack();
-  
+
   await page.getByRole('link', { name: 'SOBRE MÍ' }).click();
   await eyes.check('Menu sobre mi')
   await page.goBack();
-  
+
   await page.getByRole('link', { name: 'INICIO', exact: true }).click();
   await eyes.check('Menu inicio')
 
