@@ -7,7 +7,7 @@ test('Arteza', async ({ page, eyes }) => {
   const arteza = new Arteza(page);
   await arteza.goto();
   await eyes.open(page, 'Arteza');
-  config.setBatch({ name: 'SauceDemo E2E Visual Tests', id: process.env.APPLITOOLS_BATCH_ID });
+  config.setBatch({ name: 'SauceDemo E2E Visual Tests' });
 
   await eyes.check('Página principal')
 
