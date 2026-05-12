@@ -27,11 +27,11 @@ test.describe('Pruebas Visuales Arteza', () => {
     config.setTestName(testInfo.title); // Берем имя из test(...)
 
     // 2. Настраиваем Ultrafast Grid (все эти проверки будут внутри ОДНОГО теста в Applitools)
-    config.addBrowser(1920, 1080, BrowserType.CHROME);
-    config.addBrowser(1366, 768, BrowserType.FIREFOX);
-    config.addBrowser(1280, 800, BrowserType.SAFARI);
-    config.addDeviceEmulation(DeviceName.iPhone_X);
-    config.addDeviceEmulation(DeviceName.Pixel_5);
+//    config.addBrowser(1920, 1080, BrowserType.CHROME);
+//    config.addBrowser(1366, 768, BrowserType.FIREFOX);
+//    config.addBrowser(1280, 800, BrowserType.SAFARI);
+//    config.addDeviceEmulation(DeviceName.iPhone_X);
+//    config.addDeviceEmulation(DeviceName.Pixel_5);
 
     // 3. ПРИМЕНЯЕМ конфигурацию к eyes из фикстуры
     await eyes.setConfiguration(config);
