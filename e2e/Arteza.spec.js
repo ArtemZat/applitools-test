@@ -1,6 +1,8 @@
 import { test } from '@applitools/eyes-playwright/fixture'
 const { Arteza } = require('../pages/Arteza.js');
 
+const { Eyes, Target, VisualGridRunner, Configuration, MatchLevel } = require('@applitools/eyes-playwright');
+
 test('Arteza', async ({ page, eyes }) => {
   const arteza = new Arteza(page);
   await arteza.goto();
