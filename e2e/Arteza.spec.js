@@ -1,82 +1,75 @@
-import { test } from '@applitools/eyes-playwright/fixture'
+import { test } from '@applitools/eyes-playwright/fixture';
 const { Arteza } = require('../pages/Arteza.js');
 
-const { Eyes, Target, VisualGridRunner, Configuration, MatchLevel } = require('@applitools/eyes-playwright');
+// Добавляем недостающие импорты
+const { 
+  VisualGridRunner, 
+  Configuration, 
+  BrowserType, 
+  DeviceName, 
+  BatchInfo 
+} = require('@applitools/eyes-playwright');
 
-test.describe('Pruebas', () => {
-  let eyes;
-  let runner;
+// Создаем раннер и батч ВНЕ теста, чтобы они были общими для всех запусков
+const runner = new VisualGridRunner({ testConcurrency: 10 });
+const batch = new BatchInfo('Arteza E2E - Visual Regression');
 
-test.beforeAll(async () => {
-    // Usamos Ultrafast Grid para escalar pruebas rápidamente
-    runner = new VisualGridRunner({ testConcurrency: 5 });
+test.describe('Pruebas Visuales Arteza', () => {
+
+  test('Arteza Main Flow', async ({ page, eyes }, testInfo) => {
+    const arteza = new Arteza(page);
+
+    // 1. Создаем конфигурацию специально для этого теста
     const config = new Configuration();
-    
-    // 🔥 PRO TIP: Agrupar en un "Batch" para que en el Dashboard no salgan sueltas, sino como una "Release"
-    config.setBatch(new BatchInfo(''));
+    config.setBatch(batch);
     config.setApiKey(process.env.APPLITOOLS_API_KEY);
+    config.setAppName('Arteza');
+    config.setTestName(testInfo.title); // Берем имя из test(...)
+
+    // 2. Настраиваем Ultrafast Grid (все эти проверки будут внутри ОДНОГО теста в Applitools)
+    config.addBrowser(1920, 1080, BrowserType.CHROME);
+    config.addBrowser(1366, 768, BrowserType.FIREFOX);
+    config.addBrowser(1280, 800, BrowserType.SAFARI);
+    config.addDeviceEmulation(DeviceName.iPhone_X);
+    config.addDeviceEmulation(DeviceName.Pixel_5);
+
+    // 3. ПРИМЕНЯЕМ конфигурацию к eyes из фикстуры
+    await eyes.setConfiguration(config);
+
+    // 4. Открываем сессию (теперь она подхватит настройки Grid)
+    await eyes.open(page);
+
+    await arteza.goto();
+    await eyes.check('Página principal');
+
+    const postLinks = page.getByRole('main', { name: 'Main Content' }).getByRole('link');
+    const count = await postLinks.count();
+
+    // Цикл по постам
+    for (let i = 0; i < count; i++) {
+      const currentPost = postLinks.nth(i);
+      const title = await currentPost.innerText();
+
+      await test.step(`Comprobasión de post: ${title}`, async () => {
+        await currentPost.click();
+        await page.waitForLoadState('networkidle');
+        
+        // Снимок отдельной страницы поста
+        await eyes.check(`Post: ${title}`);
+
+        await page.goBack();
+      });
+    }
+
+    // Проверка разделов меню
+    const sections = ['CATEGORÍAS', 'ETIQUETAS', 'ARCHIVO', 'DONAR', 'SOBRE MÍ', 'INICIO'];
     
-    // Matriz de pruebas (Cross-browser y Responsive real)
-    config.addBrowser(1920, 1080, BrowserType.CHROME);    // Desktop Full HD
-    config.addBrowser(1366, 768, BrowserType.FIREFOX);    // Laptop estándar
-    config.addBrowser(1280, 800, BrowserType.SAFARI);     // Mac
-    config.addDeviceEmulation(DeviceName.iPhone_X);       // iPhone   
-    config.addDeviceEmulation(DeviceName.Pixel_5);        // Mobile Android
+    for (const section of sections) {
+        await page.getByRole('link', { name: section, exact: section === 'INICIO' }).click();
+        await page.waitForLoadState('networkidle');
+        await eyes.check(`Menu ${section.toLowerCase()}`);
+    }
 
-    // Inicializamos Eyes con toda esta configuración brutal
-    eyes = new Eyes(runner, config);
+    // Фикстура сама вызовет eyes.close(), если не возникло ошибок
   });
-
-test('Arteza Main Flow', async ({ page, eyes }) => {
-  const arteza = new Arteza(page);
-  await eyes.open(page, 'Arteza');
-
-  await arteza.goto();
-  await eyes.check('Página principal');
-
-  const postLinks = page.getByRole('main', { name: 'Main Content' }).getByRole('link');
-
-  const count = await postLinks.count();
-
-  for (let i = 0; i < count; i++) {
-    const currentPost = postLinks.nth(i);
-    const title = await currentPost.innerText(); // Запоминаем название для отчета
-
-    await test.step(`Comprobasión de post: ${title}`, async () => {
-      await currentPost.click();
-
-      await page.waitForLoadState('networkidle');
-//      await page.waitForTimeout(1000);
-
-//      await eyes.check(`Post: ${title}`, Target.window().layout())
-      await eyes.check(`Post: ${title}`)
-
-      await page.goBack(); // Возвращаемся в список для следующей итерации
-    });
-  }
-
-  await page.getByRole('link', { name: 'CATEGORÍAS' }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu categorias')
-
-  await page.getByRole('link', { name: 'ETIQUETAS' }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu etiquetas')
-
-  await page.getByRole('link', { name: 'ARCHIVO' }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu archivo')
-
-  await page.getByRole('link', { name: 'DONAR' }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu donar')
-
-  await page.getByRole('link', { name: 'SOBRE MÍ' }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu sobre mi')
-
-  await page.getByRole('link', { name: 'INICIO', exact: true }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu inicio')
-
 });
