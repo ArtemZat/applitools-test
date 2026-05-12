@@ -3,6 +3,10 @@ const { Arteza } = require('../pages/Arteza.js');
 
 const { Eyes, Target, VisualGridRunner, Configuration, MatchLevel } = require('@applitools/eyes-playwright');
 
+test.describe('Pruebas', () => {
+  let eyes;
+  let runner;
+
 test.beforeAll(async () => {
     // Usamos Ultrafast Grid para escalar pruebas rápidamente
     runner = new VisualGridRunner({ testConcurrency: 5 });
