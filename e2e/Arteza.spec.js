@@ -3,13 +3,21 @@ const { Arteza } = require('../pages/Arteza.js');
 
 const { Eyes, Target, VisualGridRunner, Configuration, MatchLevel } = require('@applitools/eyes-playwright');
 
-test('Arteza', async ({ page, eyes }) => {
+test('Arteza Main Flow', async ({ page, eyes }, testInfo) => {
   const arteza = new Arteza(page);
-  await arteza.goto();
-  await eyes.open(page, 'Arteza', testInfo.title);
-  config.setBatch({ name: 'SauceDemo E2E Visual Tests' });
+  
+  // 1. Настройка конфигурации (Имя батча)
+  const config = eyes.getConfiguration(); // Берем текущую конфигурацию
+  config.setBatch({ name: 'Arteza E2E Visual Tests' }); // Устанавливаем имя батча
+  eyes.setConfiguration(config); // ОБЯЗАТЕЛЬНО применяем настройки обратно в eyes
 
-  await eyes.check('Página principal')
+  // 2. Открытие сессии (Имя приложения и Имя теста)
+  // 'Arteza' — имя приложения
+  // testInfo.title — автоматически возьмет "Arteza Main Flow"
+  await eyes.open(page, 'Arteza', testInfo.title);
+
+  await arteza.goto();
+  await eyes.check('Página principal');
 
   const postLinks = page.getByRole('main', { name: 'Main Content' }).getByRole('link');
 
