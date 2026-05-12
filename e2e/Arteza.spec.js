@@ -3,17 +3,28 @@ const { Arteza } = require('../pages/Arteza.js');
 
 const { Eyes, Target, VisualGridRunner, Configuration, MatchLevel } = require('@applitools/eyes-playwright');
 
+test.beforeAll(async () => {
+    // Usamos Ultrafast Grid para escalar pruebas rápidamente
+    runner = new VisualGridRunner({ testConcurrency: 5 });
+    const config = new Configuration();
+    
+    // 🔥 PRO TIP: Agrupar en un "Batch" para que en el Dashboard no salgan sueltas, sino como una "Release"
+    config.setBatch(new BatchInfo(''));
+    config.setApiKey(process.env.APPLITOOLS_API_KEY);
+    
+    // Matriz de pruebas (Cross-browser y Responsive real)
+    config.addBrowser(1920, 1080, BrowserType.CHROME);    // Desktop Full HD
+    config.addBrowser(1366, 768, BrowserType.FIREFOX);    // Laptop estándar
+    config.addBrowser(1280, 800, BrowserType.SAFARI);     // Mac
+    config.addDeviceEmulation(DeviceName.iPhone_X);       // iPhone   
+    config.addDeviceEmulation(DeviceName.Pixel_5);        // Mobile Android
+
+    // Inicializamos Eyes con toda esta configuración brutal
+    eyes = new Eyes(runner, config);
+  });
+
 test('Arteza Main Flow', async ({ page, eyes }) => {
   const arteza = new Arteza(page);
-  
-  // 1. Настройка конфигурации (Имя батча)
-  const config = eyes.getConfiguration(); // Берем текущую конфигурацию
-  config.setBatch({ name: 'Arteza E2E Visual Tests' }); // Устанавливаем имя батча
-  eyes.setConfiguration(config); // ОБЯЗАТЕЛЬНО применяем настройки обратно в eyes
-
-  // 2. Открытие сессии (Имя приложения и Имя теста)
-  // 'Arteza' — имя приложения
-  // testInfo.title — автоматически возьмет "Arteza Main Flow"
   await eyes.open(page, 'Arteza');
 
   await arteza.goto();
