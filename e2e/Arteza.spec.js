@@ -53,7 +53,7 @@ test.describe('Pruebas Visuales Arteza', () => {
       await test.step(`Comprobasión de post: ${title}`, async () => {
         await currentPost.click();
         await page.waitForLoadState('networkidle');
-        
+
         // Снимок отдельной страницы поста
         await eyes.check(`Post: ${title}`);
 
@@ -63,7 +63,7 @@ test.describe('Pruebas Visuales Arteza', () => {
 
     // Проверка разделов меню
     const sections = ['CATEGORÍAS', 'ETIQUETAS', 'ARCHIVO', 'DONAR', 'SOBRE MÍ', 'INICIO'];
-    
+
     for (const section of sections) {
         await page.getByRole('link', { name: section, exact: section === 'INICIO' }).click();
         await page.waitForLoadState('networkidle');
