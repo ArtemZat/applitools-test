@@ -3,7 +3,7 @@ const { Arteza } = require('../pages/Arteza.js');
 
 const { Eyes, Target, VisualGridRunner, Configuration, MatchLevel } = require('@applitools/eyes-playwright');
 
-test('Arteza Main Flow', async ({ page, eyes }, testInfo) => {
+test('Arteza Main Flow', async ({ page, eyes }) => {
   const arteza = new Arteza(page);
   
   // 1. Настройка конфигурации (Имя батча)
@@ -14,7 +14,7 @@ test('Arteza Main Flow', async ({ page, eyes }, testInfo) => {
   // 2. Открытие сессии (Имя приложения и Имя теста)
   // 'Arteza' — имя приложения
   // testInfo.title — автоматически возьмет "Arteza Main Flow"
-  await eyes.open(page, 'Arteza', testInfo.title);
+  await eyes.open(page, 'Arteza');
 
   await arteza.goto();
   await eyes.check('Página principal');
