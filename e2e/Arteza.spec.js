@@ -6,7 +6,7 @@ const { Eyes, Target, VisualGridRunner, Configuration, MatchLevel } = require('@
 test('Arteza', async ({ page, eyes }) => {
   const arteza = new Arteza(page);
   await arteza.goto();
-  await eyes.open(page, 'Arteza');
+  await eyes.open(page, 'Arteza', testInfo.title);
   config.setBatch({ name: 'SauceDemo E2E Visual Tests' });
 
   await eyes.check('Página principal')

@@ -4,7 +4,7 @@
   <id>arteza.es/</id>
   <title>Artem</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2026-05-11T11:13:11+02:00</updated>
+  <updated>2026-05-12T11:56:19+02:00</updated>
   <author>
     <name>Artem Zatsarnyi</name>
     <uri>arteza.es/</uri>
@@ -48,7 +48,7 @@
     <link href="arteza.es/posts/transfer-domain-to-cloudflare/" rel="alternate" type="text/html" title="Transferir gestión de dominio a Cloudflare" />
     <published>2026-01-03T20:00:00+01:00</published>
   
-    <updated>2026-01-03T20:00:00+01:00</updated>
+    <updated>2026-05-11T11:50:52+02:00</updated>
   
     <id>arteza.es/posts/transfer-domain-to-cloudflare/</id>
     <content type="text/html" src="arteza.es/posts/transfer-domain-to-cloudflare/" />
