@@ -1,75 +1,143 @@
-import { test } from '@applitools/eyes-playwright/fixture';
+require('dotenv').config();
+const { test } = require('@playwright/test');
 const { Arteza } = require('../pages/Arteza.js');
-
-// Добавляем недостающие импорты
-const { 
-  VisualGridRunner, 
-  Configuration, 
-  BrowserType, 
-  DeviceName, 
-  BatchInfo 
+const {
+    Eyes,
+    Target,
+    VisualGridRunner,
+    Configuration,
+    BrowserType,
+    BatchInfo,
+    DeviceName,
+    ScreenOrientation
 } = require('@applitools/eyes-playwright');
 
-// Создаем раннер и батч ВНЕ теста, чтобы они были общими для всех запусков
-const runner = new VisualGridRunner({ testConcurrency: 10 });
-const batch = new BatchInfo('Arteza E2E - Visual Regression');
+// Creamos runner y batch para ambos tests
+const runner = new VisualGridRunner({ testConcurrency: 15 });
+const batch = new BatchInfo('Arteza E2E - Split Platforms');
 
 test.describe('Pruebas Visuales Arteza', () => {
-
-  test('Arteza Main Flow', async ({ page, eyes }, testInfo) => {
-    const arteza = new Arteza(page);
-
-    // 1. Создаем конфигурацию специально для этого теста
-    const config = new Configuration();
-    config.setBatch(batch);
-    config.setApiKey(process.env.APPLITOOLS_API_KEY);
-    config.setAppName('Arteza');
-    config.setTestName(testInfo.title); // Берем имя из test(...)
-
-    // 2. Настраиваем Ultrafast Grid (все эти проверки будут внутри ОДНОГО теста в Applitools)
-//    config.addBrowser(1920, 1080, BrowserType.CHROME);
-//    config.addBrowser(1366, 768, BrowserType.FIREFOX);
-//    config.addBrowser(1280, 800, BrowserType.SAFARI);
-//    config.addDeviceEmulation(DeviceName.iPhone_X);
-//    config.addDeviceEmulation(DeviceName.Pixel_5);
-
-    // 3. ПРИМЕНЯЕМ конфигурацию к eyes из фикстуры
-    await eyes.setConfiguration(config);
-
-    // 4. Открываем сессию (теперь она подхватит настройки Grid)
-    await eyes.open(page);
-
-    await arteza.goto();
-    await eyes.check('Página principal');
-
-    const postLinks = page.getByRole('main', { name: 'Main Content' }).getByRole('link');
-    const count = await postLinks.count();
-
-    // Цикл по постам
-    for (let i = 0; i < count; i++) {
-      const currentPost = postLinks.nth(i);
-      const title = await currentPost.innerText();
-
-      await test.step(`Comprobasión de post: ${title}`, async () => {
-        await currentPost.click();
-        await page.waitForLoadState('networkidle');
-
-        // Снимок отдельной страницы поста
-        await eyes.check(`Post: ${title}`);
-
-        await page.goBack();
-      });
+    // Comprobación: Si no habrá API KEY, sale un error en lenguaje humano.
+    if (!process.env.APPLITOOLS_API_KEY) {
+        throw new Error('ERROR: APPLITOOLS_API_KEY no encontrado en process.env. Comprueba fichero .env');
     }
 
-    // Проверка разделов меню
-    const sections = ['CATEGORÍAS', 'ETIQUETAS', 'ARCHIVO', 'DONAR', 'SOBRE MÍ', 'INICIO'];
+    // Grupo 1: Navegadores desktop
+    test.describe('Desktop Browsers', () => {
+        let eyes;
 
-    for (const section of sections) {
-        await page.getByRole('link', { name: section, exact: section === 'INICIO' }).click();
-        await page.waitForLoadState('networkidle');
-        await eyes.check(`Menu ${section.toLowerCase()}`);
-    }
+        test.beforeEach(async ({ page }, testInfo) => {
+            const config = new Configuration();
+            config.setBatch(batch);
+            config.setApiKey(process.env.APPLITOOLS_API_KEY);
+            config.setAppName('Arteza');
+            config.setTestName(`${testInfo.title} [Desktop]`);
 
-    // Фикстура сама вызовет eyes.close(), если не возникло ошибок
-  });
+            // Configuración Grid para navegadores
+            config.addBrowser(1920, 1080, BrowserType.CHROME);
+            config.addBrowser(3840, 2160, BrowserType.CHROME);
+            config.addBrowser(1920, 1080, BrowserType.FIREFOX);
+            config.addBrowser(1920, 1080, BrowserType.SAFARI);
+
+            eyes = new Eyes(runner, config);
+            await eyes.open(page);
+        });
+
+        test('Arteza Main Flow - Desktop', async ({ page }) => {
+            test.slow(); // Aumenta tiempo de espera de los comandos a 3 veces
+            const arteza = new Arteza(page);
+            await arteza.goto();
+
+            await eyes.check('Página principal', Target.window().fully());
+
+            const postLinks = page.getByRole('main', { name: 'Main Content' }).getByRole('link');
+            const count = await postLinks.count();
+
+            // Bucle por todos posts
+            for (let i = 0; i < count; i++) {
+                const currentPost = postLinks.nth(i);
+                const title = await currentPost.innerText();
+
+                await test.step(`Comprobación de post: ${title}`, async () => {
+                    await currentPost.click();
+                    await page.waitForLoadState('networkidle');
+                    // Captura de cada post
+                    await eyes.check(`Post: ${title}`, Target.window().fully());
+                    await page.goBack();
+                });
+            }
+
+            // Comprobación de menús
+            const sections = ['CATEGORÍAS', 'ETIQUETAS', 'ARCHIVO', 'DONAR', 'SOBRE MÍ', 'INICIO'];
+            for (const section of sections) {
+                await page.getByRole('link', { name: section, exact: section === 'INICIO' }).click();
+                await page.waitForLoadState('networkidle');
+                await eyes.check(`Menu ${section.toLowerCase()}`, Target.window().fully());
+            }
+        });
+        test.afterEach(async () => { await eyes.closeAsync(); });
+    });
+
+    // Grupo 2: Dispositivos móviles
+    test.describe('Mobile Devices', () => {
+        let eyes;
+
+        test.beforeEach(async ({ page }, testInfo) => {
+            const config = new Configuration();
+            config.setBatch(batch);
+            config.setApiKey(process.env.APPLITOOLS_API_KEY);
+            config.setAppName('Arteza');
+            config.setTestName(`${testInfo.title} [Mobile]`);
+
+            // Configuración Grid para móviles
+            config.addDeviceEmulation(DeviceName.Galaxy_S25_Ultra, ScreenOrientation.PORTRAIT);
+            config.addDeviceEmulation(DeviceName.iPhone_15_Pro, ScreenOrientation.PORTRAIT);
+            config.addDeviceEmulation(DeviceName.OnePlus_7T_Pro, ScreenOrientation.LANDSCAPE);
+            config.addDeviceEmulation(DeviceName.OnePlus_7T_Pro, ScreenOrientation.PORTRAIT);
+            config.addDeviceEmulation(DeviceName.Galaxy_Tab_S8, ScreenOrientation.PORTRAIT);
+            config.addDeviceEmulation(DeviceName.Galaxy_Tab_S8, ScreenOrientation.LANDSCAPE);
+
+            eyes = new Eyes(runner, config);
+            await eyes.open(page);
+        });
+
+        test('Arteza Main Flow - Mobile', async ({ page }) => {
+            test.slow(); // Aumenta tiempo de espera de los comandos a 3 veces
+            const arteza = new Arteza(page);
+            await arteza.goto();
+
+            await eyes.check('Página principal', Target.window().fully());
+
+            const postLinks = page.getByRole('main', { name: 'Main Content' }).getByRole('link');
+            const count = await postLinks.count();
+
+            // Bucle por todos posts
+            for (let i = 0; i < count; i++) {
+                const currentPost = postLinks.nth(i);
+                const title = await currentPost.innerText();
+
+                await test.step(`Comprobación de post: ${title}`, async () => {
+                    await currentPost.click();
+                    await page.waitForLoadState('networkidle');
+                    // Captura de cada post
+                    await eyes.check(`Post: ${title}`, Target.window().fully());
+                    await page.goBack();
+                });
+            }
+
+            // Comprobación de menús
+            const sections = ['CATEGORÍAS', 'ETIQUETAS', 'ARCHIVO', 'DONAR', 'SOBRE MÍ', 'INICIO'];
+            for (const section of sections) {
+                await page.getByRole('link', { name: section, exact: section === 'INICIO' }).click();
+                await page.waitForLoadState('networkidle');
+                await eyes.check(`Menu ${section.toLowerCase()}`, Target.window().fully());
+            }
+        });
+        test.afterEach(async () => { await eyes.closeAsync(); });
+    });
+
+    test.afterAll(async () => {
+        test.setTimeout(180000); // Asigna tiempo de ejecución máximo
+        await runner.getAllTestResults(false); // Espera respuesta de Applitools, si imñagenes son mismos o hay diferencias
+    });
 });
