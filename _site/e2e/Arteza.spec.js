@@ -1,67 +1,143 @@
-import { test } from '@applitools/eyes-playwright/fixture'
+require('dotenv').config();
+const { test } = require('@playwright/test');
 const { Arteza } = require('../pages/Arteza.js');
+const {
+    Eyes,
+    Target,
+    VisualGridRunner,
+    Configuration,
+    BrowserType,
+    BatchInfo,
+    DeviceName,
+    ScreenOrientation
+} = require('@applitools/eyes-playwright');
 
-const { Eyes, Target, VisualGridRunner, Configuration, MatchLevel } = require('@applitools/eyes-playwright');
+// Creamos runner y batch para ambos tests
+const runner = new VisualGridRunner({ testConcurrency: 15 });
+const batch = new BatchInfo('Arteza E2E - Split Platforms');
 
-test('Arteza Main Flow', async ({ page, eyes }) => {
-  const arteza = new Arteza(page);
-  
-  // 1. Настройка конфигурации (Имя батча)
-  const config = eyes.getConfiguration(); // Берем текущую конфигурацию
-  config.setBatch({ name: 'Arteza E2E Visual Tests' }); // Устанавливаем имя батча
-  eyes.setConfiguration(config); // ОБЯЗАТЕЛЬНО применяем настройки обратно в eyes
+test.describe('Pruebas Visuales Arteza', () => {
+    // Comprobación: Si no habrá API KEY, sale un error en lenguaje humano.
+    if (!process.env.APPLITOOLS_API_KEY) {
+        throw new Error('ERROR: APPLITOOLS_API_KEY no encontrado en process.env. Comprueba fichero .env');
+    }
 
-  // 2. Открытие сессии (Имя приложения и Имя теста)
-  // 'Arteza' — имя приложения
-  // testInfo.title — автоматически возьмет "Arteza Main Flow"
-  await eyes.open(page, 'Arteza');
+    // Grupo 1: Navegadores desktop
+    test.describe('Desktop Browsers', () => {
+        let eyes;
 
-  await arteza.goto();
-  await eyes.check('Página principal');
+        test.beforeEach(async ({ page }, testInfo) => {
+            const config = new Configuration();
+            config.setBatch(batch);
+            config.setApiKey(process.env.APPLITOOLS_API_KEY);
+            config.setAppName('Arteza');
+            config.setTestName(`${testInfo.title} [Desktop]`);
 
-  const postLinks = page.getByRole('main', { name: 'Main Content' }).getByRole('link');
+            // Configuración Grid para navegadores
+            config.addBrowser(1920, 1080, BrowserType.CHROME);
+            config.addBrowser(3840, 2160, BrowserType.CHROME);
+            config.addBrowser(1920, 1080, BrowserType.FIREFOX);
+            config.addBrowser(1920, 1080, BrowserType.SAFARI);
 
-  const count = await postLinks.count();
+            eyes = new Eyes(runner, config);
+            await eyes.open(page);
+        });
 
-  for (let i = 0; i < count; i++) {
-    const currentPost = postLinks.nth(i);
-    const title = await currentPost.innerText(); // Запоминаем название для отчета
+        test('Arteza Main Flow - Desktop', async ({ page }) => {
+            test.slow(); // Aumenta tiempo de espera de los comandos a 3 veces
+            const arteza = new Arteza(page);
+            await arteza.goto();
 
-    await test.step(`Comprobasión de post: ${title}`, async () => {
-      await currentPost.click();
+            await eyes.check('Página principal', Target.window().fully());
 
-      await page.waitForLoadState('networkidle');
-//      await page.waitForTimeout(1000);
+            const postLinks = page.getByRole('main', { name: 'Main Content' }).getByRole('link');
+            const count = await postLinks.count();
 
-//      await eyes.check(`Post: ${title}`, Target.window().layout())
-      await eyes.check(`Post: ${title}`)
+            // Bucle por todos posts
+            for (let i = 0; i < count; i++) {
+                const currentPost = postLinks.nth(i);
+                const title = await currentPost.innerText();
 
-      await page.goBack(); // Возвращаемся в список для следующей итерации
+                await test.step(`Comprobación de post: ${title}`, async () => {
+                    await currentPost.click();
+                    await page.waitForLoadState('networkidle');
+                    // Captura de cada post
+                    await eyes.check(`Post: ${title}`, Target.window().fully());
+                    await page.goBack();
+                });
+            }
+
+            // Comprobación de menús
+            const sections = ['CATEGORÍAS', 'ETIQUETAS', 'ARCHIVO', 'DONAR', 'SOBRE MÍ', 'INICIO'];
+            for (const section of sections) {
+                await page.getByRole('link', { name: section, exact: section === 'INICIO' }).click();
+                await page.waitForLoadState('networkidle');
+                await eyes.check(`Menu ${section.toLowerCase()}`, Target.window().fully());
+            }
+        });
+        test.afterEach(async () => { await eyes.closeAsync(); });
     });
-  }
 
-  await page.getByRole('link', { name: 'CATEGORÍAS' }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu categorias')
+    // Grupo 2: Dispositivos móviles
+    test.describe('Mobile Devices', () => {
+        let eyes;
 
-  await page.getByRole('link', { name: 'ETIQUETAS' }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu etiquetas')
+        test.beforeEach(async ({ page }, testInfo) => {
+            const config = new Configuration();
+            config.setBatch(batch);
+            config.setApiKey(process.env.APPLITOOLS_API_KEY);
+            config.setAppName('Arteza');
+            config.setTestName(`${testInfo.title} [Mobile]`);
 
-  await page.getByRole('link', { name: 'ARCHIVO' }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu archivo')
+            // Configuración Grid para móviles
+            config.addDeviceEmulation(DeviceName.Galaxy_S25_Ultra, ScreenOrientation.PORTRAIT);
+            config.addDeviceEmulation(DeviceName.iPhone_15_Pro, ScreenOrientation.PORTRAIT);
+            config.addDeviceEmulation(DeviceName.OnePlus_7T_Pro, ScreenOrientation.LANDSCAPE);
+            config.addDeviceEmulation(DeviceName.OnePlus_7T_Pro, ScreenOrientation.PORTRAIT);
+            config.addDeviceEmulation(DeviceName.Galaxy_Tab_S8, ScreenOrientation.PORTRAIT);
+            config.addDeviceEmulation(DeviceName.Galaxy_Tab_S8, ScreenOrientation.LANDSCAPE);
 
-  await page.getByRole('link', { name: 'DONAR' }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu donar')
+            eyes = new Eyes(runner, config);
+            await eyes.open(page);
+        });
 
-  await page.getByRole('link', { name: 'SOBRE MÍ' }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu sobre mi')
+        test('Arteza Main Flow - Mobile', async ({ page }) => {
+            test.slow(); // Aumenta tiempo de espera de los comandos a 3 veces
+            const arteza = new Arteza(page);
+            await arteza.goto();
 
-  await page.getByRole('link', { name: 'INICIO', exact: true }).click();
-  await page.waitForLoadState('networkidle');
-  await eyes.check('Menu inicio')
+            await eyes.check('Página principal', Target.window().fully());
 
+            const postLinks = page.getByRole('main', { name: 'Main Content' }).getByRole('link');
+            const count = await postLinks.count();
+
+            // Bucle por todos posts
+            for (let i = 0; i < count; i++) {
+                const currentPost = postLinks.nth(i);
+                const title = await currentPost.innerText();
+
+                await test.step(`Comprobación de post: ${title}`, async () => {
+                    await currentPost.click();
+                    await page.waitForLoadState('networkidle');
+                    // Captura de cada post
+                    await eyes.check(`Post: ${title}`, Target.window().fully());
+                    await page.goBack();
+                });
+            }
+
+            // Comprobación de menús
+            const sections = ['CATEGORÍAS', 'ETIQUETAS', 'ARCHIVO', 'DONAR', 'SOBRE MÍ', 'INICIO'];
+            for (const section of sections) {
+                await page.getByRole('link', { name: section, exact: section === 'INICIO' }).click();
+                await page.waitForLoadState('networkidle');
+                await eyes.check(`Menu ${section.toLowerCase()}`, Target.window().fully());
+            }
+        });
+        test.afterEach(async () => { await eyes.closeAsync(); });
+    });
+
+    test.afterAll(async () => {
+        test.setTimeout(180000); // Asigna tiempo de ejecución máximo
+        await runner.getAllTestResults(false); // Espera respuesta de Applitools, si imñagenes son mismos o hay diferencias
+    });
 });
