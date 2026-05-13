@@ -91,5 +91,3 @@ Ahora hay que cambiar servidores NS por defecto al servidores NS de cloudflare.
 >
 > En mi caso ha tardado menos de 3 horas.
 {: .prompt-info }
-
-.

@@ -4,7 +4,7 @@
   <id>arteza.es/</id>
   <title>Artem</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2026-05-13T13:38:21+02:00</updated>
+  <updated>2026-05-13T13:51:23+02:00</updated>
   <author>
     <name>Artem Zatsarnyi</name>
     <uri>arteza.es/</uri>
@@ -17,30 +17,6 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
-
-  
-  <entry>
-    <title>Applitools</title>
-    <link href="arteza.es/posts/traefik-copy-test/" rel="alternate" type="text/html" title="Applitools" />
-    <published>2026-01-03T20:00:01+01:00</published>
-  
-    <updated>2026-01-03T20:00:01+01:00</updated>
-  
-    <id>arteza.es/posts/traefik-copy-test/</id>
-    <content type="text/html" src="arteza.es/posts/traefik-copy-test/" />
-    <author>
-      <name>Artem Zatsarnyi</name>
-    </author>
-
-  
-    
-    <category term="homelab" />
-    
-  
-
-  <summary>1. ¿Que es un proxy inverso?  Proxy inverso es un servidor intermediario que se sitúa delante de uno o varios servidores web y recibe las peticiones de los clientes  En lugar de que el cliente se comunique directamente con el servidor real, habla con el proxy inverso, y este se encarga de reenviar la solicitud al servidor adecuado y devolver la respuesta.  2. ¿Que es Traefik y para que sirve?  ...</summary>
-
-  </entry>
 
   
   <entry>
@@ -72,7 +48,7 @@
     <link href="arteza.es/posts/transfer-domain-to-cloudflare/" rel="alternate" type="text/html" title="Transferir gestión de dominio a Cloudflare" />
     <published>2026-01-03T20:00:00+01:00</published>
   
-    <updated>2026-05-11T11:50:52+02:00</updated>
+    <updated>2026-05-13T13:39:04+02:00</updated>
   
     <id>arteza.es/posts/transfer-domain-to-cloudflare/</id>
     <content type="text/html" src="arteza.es/posts/transfer-domain-to-cloudflare/" />
@@ -96,7 +72,7 @@
     <link href="arteza.es/posts/about-markdown/" rel="alternate" type="text/html" title="Markdown - lenguaje de marcado ligero" />
     <published>2025-12-26T23:11:00+01:00</published>
   
-    <updated>2025-12-26T23:11:00+01:00</updated>
+    <updated>2026-05-13T13:39:04+02:00</updated>
   
     <id>arteza.es/posts/about-markdown/</id>
     <content type="text/html" src="arteza.es/posts/about-markdown/" />

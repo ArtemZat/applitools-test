@@ -35,8 +35,6 @@ Hay tres tipos:
 
 * **Negrita**
 
-* Texto añadido
-
 * ***Negrita y cursiva***
 
 |       Tipo        |   Sintaxis    |
