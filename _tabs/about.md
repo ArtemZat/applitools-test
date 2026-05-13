@@ -17,7 +17,7 @@ order: 6
 _Подпись снизу фото_
 
 -->
-
+.
 Soy simplemente una persona que quiere desarrollarse y no estar constantemente preguntándole todo a ChatGPT.
 
 Terminé FP Medio de Informática💻 y estoy empezando a estudiar Grado Superior también en informática🖥️.

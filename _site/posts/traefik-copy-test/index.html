@@ -30,25 +30,25 @@
 
   <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Transferir gestión de dominio a Cloudflare" />
+<meta property="og:title" content="Applitools" />
 <meta property="og:locale" content="es_ES" />
-<meta name="description" content="1. ¿Que es Cloudflare?" />
-<meta property="og:description" content="1. ¿Que es Cloudflare?" />
-<link rel="canonical" href="arteza.es/posts/transfer-domain-to-cloudflare/" />
-<meta property="og:url" content="arteza.es/posts/transfer-domain-to-cloudflare/" />
+<meta name="description" content="1. ¿Que es un proxy inverso?" />
+<meta property="og:description" content="1. ¿Que es un proxy inverso?" />
+<link rel="canonical" href="arteza.es/posts/traefik-copy-test/" />
+<meta property="og:url" content="arteza.es/posts/traefik-copy-test/" />
 <meta property="og:site_name" content="Artem" />
-<meta property="og:image" content="arteza.es/assets/posts/2026-01-03-transfer-domain-to-cloudflare/header.webp" />
+<meta property="og:image" content="arteza.es/assets/posts/2026-01-01-traefik/header.webp" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-01-03T20:00:00+01:00" />
+<meta property="article:published_time" content="2026-01-03T20:00:01+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="arteza.es/assets/posts/2026-01-03-transfer-domain-to-cloudflare/header.webp" />
-<meta property="twitter:title" content="Transferir gestión de dominio a Cloudflare" />
+<meta property="twitter:image" content="arteza.es/assets/posts/2026-01-01-traefik/header.webp" />
+<meta property="twitter:title" content="Applitools" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-05-11T11:50:52+02:00","datePublished":"2026-01-03T20:00:00+01:00","description":"1. ¿Que es Cloudflare?","headline":"Transferir gestión de dominio a Cloudflare","image":{"lqip":"data:image/webp;base64,UklGRkYFAABXRUJQVlA4IDoFAABwIQCdASq0AF4AP3Ggx1s0qrGwrVd8kpAuCWwGepy8xRVN83LadL0znYjQWGd2M1BPwDqcPi6eVc42kf6Bx4CaDvIrxM59DogVMFLf+WiiAxWnGq6uGYvj9CIzPWkiidzi8LM6dWmgf3SMy0/iavUuRadWi6Z8NVMCMMPeoUenvwP2NAOvpWpgR7AEzfO7WWIyz96Jva0oLG93e3BQA3tvmyZ0AVJXC35ViGdl2tFK5uye3YVbmLGtg5cQZW2EadsoMCk7v/zARL7hKeJ3dGzNjTkwx6FpMy1343kF4xF4JqcG/qZ1w0bZT+FO08oaZ1qLh6mqPKbruR7yr5f1FPoc7eou4pUxIyHQdz9pcFmohIF6McAA/pJLpHb2HxbX/V3Kzk6AtqiTz0L3P2VyJkImwuTbNU7YsloLouPUWHzc5+RQWW1DDPwCiGKA4syJ7lq+4EYEHLglqHHu9ZJ+7TEWw0sugAAY0xdiFDJEKFr7f3+bcA49xrp8A8VPJ++ebF13E4wHY5DOgsevgT8XWfH8ywoyYa/tWGeHRGFPFWXsRdH068oP0NvxDwM0ZqwRmmi+lTJbYcuUEesLIiFhIF5Ka03lEil/cnEjAI4NmdTRQRLAZW9O2AM1N3bPtHGMwZWw4kvJtip9up+jdUjxObYfR4gW1AkKd18nSECDje8fiOx0bT4VhAbnfexdrt71PKFi9W92/uAbj5fSiRcd2Tllic8S/L7i+jD41KOpPFAJmlNVzKTdl6jz5/9q1TU60Vout9S4zS0M35huEoKDPUXwjkvknhW9SDFGH2hDFOLoY1E+954g247q2rIFAiqTueAOnrHALM6KZhA4D/2QzqdY5RwM+4UdhZtuKZoulGFlg4yWHhYnMQMPAw+h2i9Pl8v02gXUm56g9ptmP5VjR3wyMHLOFujH0ozE97jxyDXodFkbchfN9TTK7cH+329EvP2ViAm5RVq9nvJZ7/Z2Hza7a3n2Fp++zEMkkU1tGDzk1gyFHiS0u+sthxjwVgRrrLVYCOuo43RtKzCxZLBR/SVaQGuVdHc6OzWLKV6+jCC4o9dtnWAmyYLnfM+MxBXOKvJyAERrdA46RjO8IUSDT4V1/AVGILiO9vCVNNs1r63880GW+W+e4J5Q3aToGHcH58boBOKw/fY6xqYlWYnJ4zNJ2e3NUiSLf6AKx6817Y1Sr5SJs+DtnIXz3h39y5OQTB3gf7Z0uMLE47u+JFmI8Opu8sf61BbGrFlPLgaBXF4alzY2w1DwBk7Ag0fLlYBbUA8RbbTH0k2zKQoB6tRtieFrC9CxCSj/kTIOT4Qj5MfYgcu9RrAspvaXUhJQqRGhqF3TEO3xjA9FjZWztNe8q6M8zaQzUq3HtnAE8vc2g+AeqHYujDb2c8bjDx+lmAZ+cUM8o8zTZLj3YtfJ/I8mcGCCv16dsNMTjxZVvyFrq3ChPsbGHfa0nO1RJ4QnIoj7aWbw80OV2oNHuNFe0f8skhrOSVLpY/7tI2l42bbFUS3xRKsbgk1LRxDpwi2NRQ5/QYxoYUpq33F+vQGXPo/3Ecas4WOe2qs7WLS0x3AaNIJmtm6hJHN54c6x6Wve5RSCV7/aonnHAS1jTNwxeblsElfPKExVn0V8PmNVVloeISxI9AXbkV8yuLdzGxJsffCCGIW15/O10m6GInm3/ChBlhOFkamx+XWAxQdl2WVD5GJUERgLbYNuya6dBOJwnNM1fUEa9C8JEs870diwF6x8bWzG7HZ4XiIVuQw88Ir87k3xJhRYNhpADdJOAAA=","url":"arteza.es/assets/posts/2026-01-03-transfer-domain-to-cloudflare/header.webp","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"arteza.es/posts/transfer-domain-to-cloudflare/"},"url":"arteza.es/posts/transfer-domain-to-cloudflare/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-03T20:00:01+01:00","datePublished":"2026-01-03T20:00:01+01:00","description":"1. ¿Que es un proxy inverso?","headline":"Applitools","image":{"lqip":"data:image/webp;base64,UklGRiQDAABXRUJQVlA4IBgDAACwFwCdASq0AF4AP3GqzF60rCmmqHNr6pAuCWMA1VH/76fZwxpF56EYvSZK6zUjq0CiN9Ju8ns9DJ4VyUaHyn+kEfMXWi+cw9F2Ve1bfswwUyLOkCMepOmJZXNrw+uwCuWJ+vY36zWlLdy3UtVShjZtoeQvCvZTgb6V8qkPmBSNob5SttNCajrhc0XnFAoBzt1GxtyKsT3qBtw9lgJ9OAh3XpaJUxnGnUkTosA0d+HQ5rMeE4IKo3reIpAPdddGYSxrDe/v8IAA/u84khZGtq7nTUr/qttFbMjz2RW0o2oR0xNA+VSDYIDwaO9FeYHuSe3zc6feJuLJUU6ldJ3tYUxH0UjTwNjhCv11vyqq6IlC3UEgZmJ+X0/QmLhVoB609gKH9r8jfZXRSBW6aUQb+3YPWXcJtTwq0+v9jSwMcomLYLkDvjKLPsmZ9yEsZRCqJWQy6T6fT1A9UKi0g7jzPIyqKEwwNUHwRQDMkf7tF/nal9RQEWp1gt1/dpGt+nKDdEseTVf+Esd1XrJWwPdn3S7l7q0V30iCz2RDKbHGxJGsxAJUO62DYX/9JxDpR+AysEeqs3ypLj+Sq3qV/GdXb7T6peuG4ivekrO8rON0hiIKwBgV+nDtGi+7X1eUP98f05IZORh+mPdI4SQTVTsjz0ueoPvlfFeyYhGZluYvp/acevymLhgmwGWaGdi2hT4FCTIS7k19xUqPfZO4I9tnt66lx183TJnuD6IcwepL5tG/97HXkHv0+icYsIbrXyl6cVrkwaPIvGs7Yiex9vlC3+ouSKddWTehnOPFVFcO33iMVZ17nlcibYaKcROvXm2OLDpXU1wEla3Cc2xG1tJJwRtEkqShPhEUMzAZ67GqVIUtmCsvQM3bpTqsPbEquihPUXnHJB73RnBTf50v4obFd+68onoNmbBaPzvOvR/wVPnPmY0W3FyluQ3ydvwdu9ZQ1xgOHpVn45JHqpQdCPHFOadb08TvWRJ6p/fZ3ydkwwFbAOyrDlXnk4kMUdV6Xnjlipj821mBCRgUQcgkhp9ZC1egx6h84aAAAAA=","url":"arteza.es/assets/posts/2026-01-01-traefik/header.webp","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"arteza.es/posts/traefik-copy-test/"},"url":"arteza.es/posts/traefik-copy-test/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-  <title>Transferir gestión de dominio a Cloudflare | Artem
+  <title>Applitools | Artem
   </title>
 
   <!--
@@ -435,7 +435,7 @@
         
           
             
-              <span>Transferir gestión de dominio a Cloudflare</span>
+              <span>Applitools</span>
             
 
           
@@ -774,646 +774,6 @@
     <!-- combine -->
     
   
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      <!-- add image placeholder -->
-      
-
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      <!-- add image placeholder -->
-      
-
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      <!-- add image placeholder -->
-      
-
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      <!-- add image placeholder -->
-      
-
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      <!-- add image placeholder -->
-      
-
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      <!-- add image placeholder -->
-      
-
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      <!-- add image placeholder -->
-      
-
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      <!-- add image placeholder -->
-      
-
-    
-
-    <!-- lazy-load images -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-
-        
-        
-      
-    
-
-    <!-- combine -->
-    
-  
 
   
 
@@ -1472,21 +832,6 @@
 
       
     
-
-    
-  
-
-  
-  
-
-  
-    
-    
-
-    
-      
-        
-        
       
 
       
@@ -1546,74 +891,13 @@
 
       
     
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-    
 
     
+  
+
+  
+  
+
   
 
   
@@ -1637,7 +921,7 @@
 
 <article class="px-1" data-toc="true">
   <header>
-    <h1 data-toc-skip>Transferir gestión de dominio a Cloudflare</h1>
+    <h1 data-toc-skip>Applitools</h1>
     
 
     <div class="post-meta text-muted">
@@ -1654,7 +938,7 @@
 
 <time
   
-  data-ts="1767466800"
+  data-ts="1767466801"
   data-df="DD/MM/YYYY"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -1667,29 +951,6 @@
 
       <!-- lastmod date -->
       
-        <span>
-          Actualizado
-          <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-<time
-  
-  data-ts="1778493052"
-  data-df="DD/MM/YYYY"
-  
-    data-bs-toggle="tooltip" data-bs-placement="bottom"
-  
->
-  11/05/2026
-</time>
-
-        </span>
-      
 
       
         
@@ -1699,7 +960,7 @@
         
 
         <div class="mt-3 mb-3">
-          <a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/header.webp" class="popup img-link preview-img blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/header.webp"  alt="Preview Image" width="1200" height="630" data-lqip="true" src="data:image/webp;base64,UklGRkYFAABXRUJQVlA4IDoFAABwIQCdASq0AF4AP3Ggx1s0qrGwrVd8kpAuCWwGepy8xRVN83LadL0znYjQWGd2M1BPwDqcPi6eVc42kf6Bx4CaDvIrxM59DogVMFLf+WiiAxWnGq6uGYvj9CIzPWkiidzi8LM6dWmgf3SMy0/iavUuRadWi6Z8NVMCMMPeoUenvwP2NAOvpWpgR7AEzfO7WWIyz96Jva0oLG93e3BQA3tvmyZ0AVJXC35ViGdl2tFK5uye3YVbmLGtg5cQZW2EadsoMCk7v/zARL7hKeJ3dGzNjTkwx6FpMy1343kF4xF4JqcG/qZ1w0bZT+FO08oaZ1qLh6mqPKbruR7yr5f1FPoc7eou4pUxIyHQdz9pcFmohIF6McAA/pJLpHb2HxbX/V3Kzk6AtqiTz0L3P2VyJkImwuTbNU7YsloLouPUWHzc5+RQWW1DDPwCiGKA4syJ7lq+4EYEHLglqHHu9ZJ+7TEWw0sugAAY0xdiFDJEKFr7f3+bcA49xrp8A8VPJ++ebF13E4wHY5DOgsevgT8XWfH8ywoyYa/tWGeHRGFPFWXsRdH068oP0NvxDwM0ZqwRmmi+lTJbYcuUEesLIiFhIF5Ka03lEil/cnEjAI4NmdTRQRLAZW9O2AM1N3bPtHGMwZWw4kvJtip9up+jdUjxObYfR4gW1AkKd18nSECDje8fiOx0bT4VhAbnfexdrt71PKFi9W92/uAbj5fSiRcd2Tllic8S/L7i+jD41KOpPFAJmlNVzKTdl6jz5/9q1TU60Vout9S4zS0M35huEoKDPUXwjkvknhW9SDFGH2hDFOLoY1E+954g247q2rIFAiqTueAOnrHALM6KZhA4D/2QzqdY5RwM+4UdhZtuKZoulGFlg4yWHhYnMQMPAw+h2i9Pl8v02gXUm56g9ptmP5VjR3wyMHLOFujH0ozE97jxyDXodFkbchfN9TTK7cH+329EvP2ViAm5RVq9nvJZ7/Z2Hza7a3n2Fp++zEMkkU1tGDzk1gyFHiS0u+sthxjwVgRrrLVYCOuo43RtKzCxZLBR/SVaQGuVdHc6OzWLKV6+jCC4o9dtnWAmyYLnfM+MxBXOKvJyAERrdA46RjO8IUSDT4V1/AVGILiO9vCVNNs1r63880GW+W+e4J5Q3aToGHcH58boBOKw/fY6xqYlWYnJ4zNJ2e3NUiSLf6AKx6817Y1Sr5SJs+DtnIXz3h39y5OQTB3gf7Z0uMLE47u+JFmI8Opu8sf61BbGrFlPLgaBXF4alzY2w1DwBk7Ag0fLlYBbUA8RbbTH0k2zKQoB6tRtieFrC9CxCSj/kTIOT4Qj5MfYgcu9RrAspvaXUhJQqRGhqF3TEO3xjA9FjZWztNe8q6M8zaQzUq3HtnAE8vc2g+AeqHYujDb2c8bjDx+lmAZ+cUM8o8zTZLj3YtfJ/I8mcGCCv16dsNMTjxZVvyFrq3ChPsbGHfa0nO1RJ4QnIoj7aWbw80OV2oNHuNFe0f8skhrOSVLpY/7tI2l42bbFUS3xRKsbgk1LRxDpwi2NRQ5/QYxoYUpq33F+vQGXPo/3Ecas4WOe2qs7WLS0x3AaNIJmtm6hJHN54c6x6Wve5RSCV7/aonnHAS1jTNwxeblsElfPKExVn0V8PmNVVloeISxI9AXbkV8yuLdzGxJsffCCGIW15/O10m6GInm3/ChBlhOFkamx+XWAxQdl2WVD5GJUERgLbYNuya6dBOJwnNM1fUEa9C8JEs870diwF6x8bWzG7HZ4XiIVuQw88Ir87k3xJhRYNhpADdJOAAA="></a></div>
+          <a href="/assets/posts/2026-01-01-traefik/header.webp" class="popup img-link preview-img blur"><img data-src="/assets/posts/2026-01-01-traefik/header.webp"  alt="Preview Image" width="1200" height="630" data-lqip="true" src="data:image/webp;base64,UklGRiQDAABXRUJQVlA4IBgDAACwFwCdASq0AF4AP3GqzF60rCmmqHNr6pAuCWMA1VH/76fZwxpF56EYvSZK6zUjq0CiN9Ju8ns9DJ4VyUaHyn+kEfMXWi+cw9F2Ve1bfswwUyLOkCMepOmJZXNrw+uwCuWJ+vY36zWlLdy3UtVShjZtoeQvCvZTgb6V8qkPmBSNob5SttNCajrhc0XnFAoBzt1GxtyKsT3qBtw9lgJ9OAh3XpaJUxnGnUkTosA0d+HQ5rMeE4IKo3reIpAPdddGYSxrDe/v8IAA/u84khZGtq7nTUr/qttFbMjz2RW0o2oR0xNA+VSDYIDwaO9FeYHuSe3zc6feJuLJUU6ldJ3tYUxH0UjTwNjhCv11vyqq6IlC3UEgZmJ+X0/QmLhVoB609gKH9r8jfZXRSBW6aUQb+3YPWXcJtTwq0+v9jSwMcomLYLkDvjKLPsmZ9yEsZRCqJWQy6T6fT1A9UKi0g7jzPIyqKEwwNUHwRQDMkf7tF/nal9RQEWp1gt1/dpGt+nKDdEseTVf+Esd1XrJWwPdn3S7l7q0V30iCz2RDKbHGxJGsxAJUO62DYX/9JxDpR+AysEeqs3ypLj+Sq3qV/GdXb7T6peuG4ivekrO8rON0hiIKwBgV+nDtGi+7X1eUP98f05IZORh+mPdI4SQTVTsjz0ueoPvlfFeyYhGZluYvp/acevymLhgmwGWaGdi2hT4FCTIS7k19xUqPfZO4I9tnt66lx183TJnuD6IcwepL5tG/97HXkHv0+icYsIbrXyl6cVrkwaPIvGs7Yiex9vlC3+ouSKddWTehnOPFVFcO33iMVZ17nlcibYaKcROvXm2OLDpXU1wEla3Cc2xG1tJJwRtEkqShPhEUMzAZ67GqVIUtmCsvQM3bpTqsPbEquihPUXnHJB73RnBTf50v4obFd+68onoNmbBaPzvOvR/wVPnPmY0W3FyluQ3ydvwdu9ZQ1xgOHpVn45JHqpQdCPHFOadb08TvWRJ6p/fZ3ydkwwFbAOyrDlXnk4kMUdV6Xnjlipj821mBCRgUQcgkhp9ZC1egx6h84aAAAAA="></a></div>
       
 
       <div class="d-flex justify-content-between">
@@ -1741,9 +1002,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="324 palabras"
+  title="667 palabras"
 >
-  <em>1 min</em> de lectura</span>
+  <em>3 min</em> de lectura</span>
 
         </div>
       </div>
@@ -1752,7 +1013,7 @@
 
   
     <div id="toc-bar" class="d-flex align-items-center justify-content-between invisible">
-      <span class="label text-truncate">Transferir gestión de dominio a Cloudflare</span>
+      <span class="label text-truncate">Applitools</span>
       <button type="button" class="toc-trigger btn me-1">
         <i class="fa-solid fa-list-ul fa-fw"></i>
       </button>
@@ -1765,7 +1026,7 @@
 
     <dialog id="toc-popup" class="p-0">
       <div class="header d-flex flex-row align-items-center justify-content-between">
-        <div class="label text-truncate py-2 ms-4">Transferir gestión de dominio a Cloudflare</div>
+        <div class="label text-truncate py-2 ms-4">Applitools</div>
         <button id="toc-popup-close" type="button" class="btn mx-1 my-1 opacity-75">
           <i class="fas fa-close"></i>
         </button>
@@ -1775,96 +1036,135 @@
   
 
   <div class="content">
-    <h2 id="1-que-es-cloudflare"><span class="me-2">1. ¿Que es Cloudflare?</span><a href="#1-que-es-cloudflare" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+    <h2 id="1-que-es-un-proxy-inverso"><span class="me-2">1. ¿Que es un proxy inverso?</span><a href="#1-que-es-un-proxy-inverso" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>Cloudflare es una empresa líder en servicios de seguridad, rendimiento y confiabilidad en Internet. Ayuda a proteger y acelerar sitios web, aplicaciones y redes mediante una plataforma global que mejora la velocidad, la disponibilidad y la seguridad frente a amenazas digitales.</p>
+<p>Proxy inverso es un servidor intermediario que se sitúa delante de uno o varios servidores web y recibe las peticiones de los clientes</p>
 
-<p>Cloudflare ofrece muchos servicios, de ellos son:</p>
+<p>En lugar de que el cliente se comunique directamente con el servidor real, habla con el proxy inverso, y este se encarga de reenviar la solicitud al servidor adecuado y devolver la respuesta.</p>
+
+<h2 id="2-que-es-traefik-y-para-que-sirve"><span class="me-2">2. ¿Que es Traefik y para que sirve?</span><a href="#2-que-es-traefik-y-para-que-sirve" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>Traefik es un potente proxy reverso con muchas funciones, de ellos son:</p>
+
 <ul>
-  <li>Seguridad avanzada contra ataques DDoS y amenazas web</li>
-  <li>Firewall de aplicaciones web (WAF)</li>
-  <li>Red global CDN para acelerar contenidos</li>
-  <li>Gestión rápida y segura de DNS</li>
-  <li>Soluciones Zero Trust y acceso seguro</li>
-  <li>Protección y optimización de APIs</li>
-  <li>Mejora del rendimiento y la disponibilidad de sitios web</li>
+  <li><strong>Configuración dinámica</strong> - Treaefik automaticamente encuentra los contenedores y configura las rutas. No hay que reiniciar Traefik configurando las rutas.</li>
+  <li><strong>Integración con Let’s Encrypt</strong> - esta integración permite crear y asignar automáticamenete los certificados TLS.
+    <ul>
+      <li>Soporta mas de 50 proveedores diferentes.</li>
+      <li>Soporta creación de certificados de varias maneras:
+        <ul>
+          <li>dnsChallenge</li>
+          <li>tlsChallenge</li>
+          <li>httpChallenge</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Panel de control</strong> informativa.</li>
 </ul>
 
-<h2 id="2-como-transferir-gestión-de-dominio"><span class="me-2">2. ¿Como transferir gestión de dominio?</span><a href="#2-como-transferir-gestión-de-dominio" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p><a href="/assets/posts/2026-01-01-traefik/traefik-dashboard.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-01-traefik/traefik-dashboard.webp" alt="Panel de control" data-lqip="true" src="data:image/webp;base64,UklGRtgCAABXRUJQVlA4IMwCAABwFwCdASq0AF0AP3Gwyl00rrKkqjTrQpAuCUAadrTZbJd0IbdsvrStfXQUizM1A8rf6tXHm8D9j9k/OlfHtCjrP9eMc33Oj3L0XMRIc9iqygUiJ8MCTqjqNZAWMUhy0LNWHgmCGVyMycwgPqkIqEsyuWDF9d0dlKQUbeIjiGkS6w7Dw4oXTtQF5cdZHcAth3NEFHtJrb+BrLhPtWxXKvkjCs3QfGZZIpvSj7DXAiASAfA52PRedHHknccxkiQDiFZC/LAAAP7Y32ctxyv3usVsIqoP/jVtWH0mezEjMHUEsWVJIFnS9VCzKydHq3V7QMZ4P2et31hYRDYCiWHk95hKR5aV631/uYdSVnpW/mLcsrm8/ysT00H2HsXpwEOm9pzvu+d6mUurb1KdAeLbAwfz3hFOHz2MfTrAaWyyW6AggZFXpCYO2GENWm/YkSxw0MybYn+c82qDApK2rGZxx5XZARVH7GD1IyKztYiW03rXTuO2X6XlHx5KQEup/06GPkVsvrFXqPUr5XgtKY2hyhpKd9f9kUSbMq5gMUgUfcIVuKAEcW8qWAQDJAtsxa//2oxzLXVSLcFM819LJkMKBX6icC/MFwLFdwL7P2gZLYLHKEhoWU+FrnAKlDA0BEc2QwvjSXc2OSpDQhuOhaLfH49Zplibu6ihqlrG7+tnke1fAS7Eqlr5cDjfaZUvSolWkRsUQlKZ9hCCKmvFxu7qsc0n0So/rnatp4LOy5D+ak8SAEVpW0UlwyMSPxC8jJOQB354uQpdp0gwMKGUaCDVcrkawxxrJLr+gnw7q2BU0xSDRD6wb8ulsRbPCS5UBSC1fihlQIY/Ixufvs6Mvln+USaYIKslv9AmCOg0JY5Uw+LH2ZjyAPHqo+WqhTrZ7BKx+Xoisa3CtlfNIaMrDKBuMZoG5YLlNGOL1qO/YYt5iDhveg/ynYMIrGAAAAAAAA=="></a>
+<em>Panel de control de Traefil</em></p>
 
-<p>Hay que solo cambiar servidores NS de su proveedor a proveedor de cloudflare y ya está.</p>
+<ul>
+  <li>Soporta muchos <a href="https://doc.traefik.io/traefik/reference/install-configuration/providers/overview/#supported-providers" target="_blank" rel="noopener noreferrer"><strong>proveedores</strong></a>.</li>
+  <li>Configuración flexible.</li>
+</ul>
 
-<blockquote class="prompt-info">
-  <p>Un servidor NS (Name Server) es un servidor que indica dónde y cómo se gestionan los registros DNS de un dominio.</p>
+<h2 id="3-conceptos-principales"><span class="me-2">3. Conceptos principales</span><a href="#3-conceptos-principales" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-  <p>En otras palabras, los servidores NS dicen a Internet qué proveedor es responsable de traducir el nombre del dominio en una dirección IP y otros datos necesarios para que un sitio web funcione.</p>
+<p>Los conceptos principales ayudan a comprender cómo fluyen las solicitudes hacia los servicios:</p>
+
+<ul>
+  <li>Los <strong>Entrypoints</strong> son los puntos de entrada de red a Traefik. Definen el puerto que recibirá los paquetes y si se escuchará TCP o UDP.</li>
+  <li>Los <strong>Routers</strong> son enrutadores que se encargan de conectar las solicitudes entrantes a los servicios que pueden gestionarlas. En el proceso, los enrutadores pueden utilizar piezas de middleware para actualizar la solicitud o actuar antes de reenviarla al servicio.</li>
+  <li>Los <strong>Middlewares</strong> son componentes que permiten modificar, transformar o controlar las solicitudes y respuestas en el camino entre los routers y los servicios. Se utilizan para tareas como autenticación, redirecciones, limitación de velocidad, manipulación de cabeceras, etc.</li>
+  <li>Los <strong>Services</strong> son responsables de configurar cómo llegar a los servicios reales que finalmente gestionarán las solicitudes entrantes.</li>
+  <li>Los <strong>Providers</strong> son proveedores de componentes de infraestructura, ya sean orquestadores, motores de contenedores, proveedores de nube o almacenes de clave-valor. La idea es que Traefik consulte las API de los proveedores para encontrar información relevante sobre el enrutamiento y, cuando Traefik detecta un cambio, actualiza dinámicamente las rutas.</li>
+</ul>
+
+<p>Estos conceptos funcionan conjuntamente para gestionar el tráfico desde el momento en que llega una solicitud hasta que llega a la aplicación.</p>
+
+<h2 id="4-tipos-de-configuración"><span class="me-2">4. Tipos de configuración</span><a href="#4-tipos-de-configuración" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>Traefik divide su configuración en dos grandes tipos: configuración estática y configuración dinámica. Esta separación es uno de los conceptos fundamentales para entender cómo funciona Traefik.</p>
+
+<p><a href="/assets/posts/2026-01-01-traefik/static-dynamic-configuration.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-01-traefik/static-dynamic-configuration.webp" alt="Photo tipos de configuraciónes" data-lqip="true" src="data:image/webp;base64,UklGRtoDAABXRUJQVlA4IM4DAACwHACdASq0AHMAP3GqzWA0q6ilpxMb0pAuCWUA1dnU/h22A+iWYv63vJbXK7m59zoh6Ptky426K92kgC70WYx21kwLmFPPMMC6G3HabD+wOKqnngGw5DUp0nqmzNPg03/xrXrHJr8UFG4KBWKpkTRHTAZEt8rVFIPGKbPK8bMXJgcATyXXsXjHekJfii6SCDUGe8hikwnwCwscb/kCPk6pXpW93oef/1jwFsJB+0y70cPHqhIKlEOx4mobftSdXaC1zOJFwUtEIpowL6rxKoZgOX3hrWfa8vrQXIFZobQ0Uq4HqleCNkhOLdAf5OAAAP7vEAABCeomOQTbesfJPW/B0yjVFE6/47uyCpUMAZV/1+dq8wjIUeGarl3b5D5iJbglLYpvWoqYGhE8ChBXBfElVxVtyfw/N73/ZhxnFwYvTocbCUNeaENk9NiSAvSxL7GgziNlBFObw0ZMftVPl2TC6SCfQ8uZoq02YEC30vfjBiKjNQvSoLD3lZ067W892cDhE52XeUr958zcqzNLAp4Tdk7+rqdpgJ0MMOvdKWwoNdgEWjTHJZTKzkUbqNtWDv2dmxEETvPg8oYMjp6NAI7nmfrehrHnrhj0zyC5FyTCi9vN35VWxW9YmJnkbErpoH6rhhoF7GysaWhSLzXNgOJa6c4sPSJ5bBHPDtWevnSf6n2vM8Zsyb3xO8HjF4gMwt4yIE4V8eLbZ4GUydY6j30gwQ46qmr/9fC2LB+EfExrddKRz088eXcbohKpM8/I9GaOd/v73NfIFuKVrxIZRMO6cxyu2O1I6MLdT+DNVD6Y8QnolFJ2H26YrXfDQu93COifFvrgWVKDsKHT0UEvbqJdS7kc18TwLjRJ/6zTwJvBYinw5ZM7x4oYPAIFBi8ZFl7JjndojqAh5M77aiyqhOVwfQeBubGcIPgO6bn9kjsreKBPxKOrLjcP4wzkEQwAUe8D9CEDk8E+Q2HMnkVgYrQVjZHQg/dKMVla8eWtgenkJ1IR4tpXVZdUMYHNGbbK5OoYA9u6wodTYBCKyf8YtVVPmvYmr+EpJWS5azpzs27HvS38xfJ22+t+uudrthdgWR9Stt72YYxHLdpqXDxF9Dx+G+cPD65jQoZm8e+Eq8SIxnJhDWJyp/0QrhKmZpUxw57i8Hpf71PyoVVNlBICRoD5qTX7M0Icvj51BHl01EZXBKBHCDoFzy2d5p6D/2sHha/lLMCD45gtQkccvo4j+k1YY0DqgedTCAd1ivJFUMZOEehoc/bJds2bhCZwlBEsZYzg1mXeyIwMywAAAAAAAA=="></a>
+<em>Tipos de configuraciónes</em></p>
+
+<h3 id="41-configuración-estática"><span class="me-2">4.1. Configuración estática</span><a href="#41-configuración-estática" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>La configuración estática define el comportamiento básico de Traefik y solo se carga al iniciar el servicio.<br />
+Cualquier cambio en esta configuración requiere reiniciar Traefik.</p>
+
+<p>En la configuración estática se definen, entre otros:</p>
+<ul>
+  <li>Entrypoints (puertos y protocolos que Traefik escuchará)</li>
+  <li>Providers (Docker, Kubernetes, File, etc.)</li>
+  <li>Configuración de TLS / ACME (Let’s Encrypt)</li>
+  <li>Logs y nivel de depuración</li>
+  <li>Dashboard y API de Traefik</li>
+</ul>
+
+<p>Hay tres formas diferentes y mutuamente excluyentes (es decir, solo se puede usar una al mismo tiempo) de definir las opciones de configuración de instalación en Traefik:</p>
+
+<p>Esta configuración puede definirse de varias formas:</p>
+
+<ol>
+  <li>Fichero de configuración .yml .yaml o .yoml (recomiendo)</li>
+  <li><a href="https://doc.traefik.io/traefik/reference/install-configuration/configuration-options/" target="_blank" rel="noopener noreferrer">Argumentos</a></li>
+  <li><a href="https://doc.traefik.io/traefik/reference/install-configuration/configuration-options/" target="_blank" rel="noopener noreferrer">Variables</a></li>
+</ol>
+
+<blockquote class="prompt-tip">
+  <ul>
+    <li>Solo se puede usar una al mismo tiempo</li>
+    <li>En los enlaces puede ver listado de argumentos y variables.</li>
+  </ul>
 </blockquote>
 
-<h2 id="3-transferir-gestión-de-ionos-al-cloudflare"><span class="me-2">3. Transferir gestión de Ionos al Cloudflare</span><a href="#3-transferir-gestión-de-ionos-al-cloudflare" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h3 id="42-configuración-dinámica"><span class="me-2">4.2. Configuración dinámica</span><a href="#42-configuración-dinámica" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-<h3 id="31-paso-del-cloudflare"><span class="me-2">3.1. Paso del Cloudflare</span><a href="#31-paso-del-cloudflare" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<p>La configuración dinámica define cómo se enruta el tráfico una vez que Traefik está en funcionamiento.<br />
+A diferencia de la configuración estática, no requiere reiniciar Traefik cuando cambia.</p>
 
-<h4 id="311-regisración-en-cloudflare"><span class="me-2">3.1.1. Regisración en Cloudflare</span><a href="#311-regisración-en-cloudflare" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<p>En la configuración dinámica se definen:</p>
+<ul>
+  <li>Routers</li>
+  <li>Middlewares
+    <ul>
+      <li>Autenticación (BasicAuth)</li>
+      <li>Redirecciones HTTP → HTTPS</li>
+      <li>Limitación de velocidad (Rate Limit)</li>
+      <li>Manipulación de cabeceras (Headers)</li>
+      <li>Compresión (Compress)</li>
+      <li>etc.</li>
+    </ul>
+  </li>
+  <li>Services</li>
+  <li>Reglas de enrutamiento (Host, Path, Headers, etc.)</li>
+</ul>
 
-<p>Primero hay que <a href="https://dash.cloudflare.com/sign-up" target="_blank" rel="noopener noreferrer">registrarse</a> en Cloudflare.</p>
+<p>Esta configuración suele obtenerse automáticamente desde los providers, por ejemplo:</p>
+<ul>
+  <li>Labels de Docker</li>
+  <li>Archivos dinámicos (file provider)</li>
+  <li>Kubernetes (Ingress / CRD)</li>
+  <li>Consul, Etcd, etc.</li>
+</ul>
 
-<h4 id="312-asignar-dominio-al-cloudflare"><span class="me-2">3.1.2. Asignar dominio al Cloudflare</span><a href="#312-asignar-dominio-al-cloudflare" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<p><a href="https://doc.traefik.io/traefik/reference/routing-configuration/dynamic-configuration-methods/" target="_blank" rel="noopener noreferrer">Aqui puede ver documentación y todos parámetros</a></p>
 
-<p>Despues hay que decir a cloudflare que tenemos nuesto dominio y que nos da unos datos importantes.</p>
+<h2 id="5-configuración-de-certificados-tls"><span class="me-2">5. Configuración de certificados TLS</span><a href="#5-configuración-de-certificados-tls" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p><a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/cloudflare_setup_domain_1.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/cloudflare_setup_domain_1.webp" alt="Foto configurar dominio en Cloudflare №1" data-lqip="true" src="data:image/webp;base64,UklGRhABAABXRUJQVlA4IAQBAADwCgCdASq0ADcAP3GyzGE0raglpXQMApAuCWkALv/fTgIad63dQdESlLYK0hptuOnmcUBOC7IPAYDRF4AVqZjReOf6wIV5BeaJFJkNBl+Bp6CUATltqp8n42nEFyMeWAAA/u1y6C5dZKkPnnLYPjApC1btcoejWsXDbdRUlFnJSpJbOW0o2Zu+XbxCWYqcpK4eHZgJ2Yr+g6D/uW6m4CeS97fvlfCgAPgLNQnvzqUG91AtucwT2VF9cgJMg+lr6l3+Bh4y2IUSvX2HXnJHaqHoWa3aI71uOUQtIgdXaI5e65LFOTu7VH3G/n2uU2huInxT6Uz+jOy2IY+K1rcTagK2EAAAAA=="></a></p>
+<p>Traefik soporta diferentes <a href="https://go-acme.github.io/lego/dns/" target="_blank" rel="noopener noreferrer">proveedores</a> para usar ACME.</p>
 
-<p><a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/cloudflare_setup_domain_2.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/cloudflare_setup_domain_2.webp" alt="Foto configurar dominio en Cloudflare №2" data-lqip="true" src="data:image/webp;base64,UklGRmYBAABXRUJQVlA4IFoBAACQDgCdASq0AFAAP3G0zmA0rqklpfdK8pAuCWcAD//xTOWr4PxQagT3irLTCL+a6x2gGsGZ86yhFNfksrW4TCIoznT7ZSMzhI8EYEmKtUzhXQ73Q2giqPEWyx5YE+dRiX6rQg7eM2YKXB9Nv7/Cpgdr+SMpzcC1I2KsjxNTAAD+7XLoLlw5gbDX0lyhF7QIUfcfIhlUibYaI+MZ04QZ0AeiAN5zBxlN0hLBRdkmsga/UicwW5bqUY2VhAm1t6IyxcApFaFG7qOZbc8cJACAEINZrWSUAWOT3PfMo4SoyuRYYs8X5caFbmaUFZ5onPqlAr1QpCSBfa7KFUHjWbuA/Uu3wAAV+CxIWTJVsSFXvwSOFM5oExW83rP374IqJfkhNytqGicgFKHHJ5aBW9gv2OStMRUHpCCGybUF/Orb4//ORGGH/3pV2NcgTWXRhvE9GI/fRdYAOZ9zgAAA"></a></p>
-<blockquote class="prompt-danger">
-  <p>Aqui voy a usar dominio de <strong>duckdns.org</strong> para ejemplo. Duckdns no permite modificar registros.</p>
+<blockquote class="prompt-tip">
+  <p>ACME (Entorno de Gestión de Certificados Automatizado) es un protocolo que automatiza la obtención, instalación y renovación de certificados SSL/TLS.</p>
 </blockquote>
 
-<h4 id="313-seleccionar-plan"><span class="me-2">3.1.3. Seleccionar plan</span><a href="#313-seleccionar-plan" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
+<p>Si no hay su proveedor en lista, se puede cambiar permiso de gestión a “Cloudflare” sin necediad de transferir dominio. <a href="/posts/transfer-domain-to-cloudflare/" target="_blank" rel="noopener noreferrer">Aqui puede encontrar información como hacerlo</a></p>
 
-<p>Voy a usar plan gratuito, este plan es bueno para uso simple.</p>
-
-<p><a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/cloudflare_setup_domain_3.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/cloudflare_setup_domain_3.webp" alt="Foto configurar dominio en Cloudflare №3" data-lqip="true" src="data:image/webp;base64,UklGRm4CAABXRUJQVlA4IGICAADwFQCdASq0AFwAP3GuyVy0rikkqVYcspAuCWduBbEt9NAwMEvGFOjz+ldxwdv3ru8HHgbGWAo06YYoY3qub047XBUIx7bIu31EYPkbNZPZ1o42rk3VUQ4vgRyhhLAS8GfLoJrR3LZPab0fR58GolJQcQegSVEc+ydlA9Q5S0+PnsfSbYs8aHuUp+lsKrJJuzGlW8YjIhAbtuHDpy2J4umNTxKIeDnf135fBZaTPqIOfwGyd58YaMAAAP7teB6lM+X4yL39eoYjV/VIcz6sYwPGEM+OdJ8tq6xy2cJ2Qao5tH54kGvr9PJHYIqDqZVuNlIAuUbkP0WefHheLv2hqPrqkyB896OTmm9FqnUZa5kF5kN5GP3TGHRsuySNBP6v5sqhqs8+Xjfu+Zb17uOluQmHNLjrlVwPCA+3mKtBrl4/ojMJWgaI1xraGP7dy/M2freUKxAmMFBxvZ37SqVfHQ26vvd8FQqinrjYBfjLM+QMM4P9XFamUf6Sn7mHorxLa6MDsNC4buHrJ/QIRxD5OwDHZeg2139CYNviQ1pEqJb69GgL3vbOpdjSxleZ0qzj8mOVQrmKCbPGZhYImgmnbfoqrZgpP9zn371ePEC6K8G5QF0bO9t6jnANj+8RtTrDg4mnkFzenyQoaWMJFrfSINHaoYetCDUs/yvRm9pXM2Sq9bk1TO/v91ENtfz1D0Gp+3w7elO+IehNlU5EhmdXbPnepln4xr25WNzK3iphGkfVvPzJ92svrg6i8QoTWVAF/ZSh78eEs+ytqG/SNUkDrr9kH9tknJ4sJkPySLpKJnAAAAAA"></a></p>
-
-<h4 id="314-comprobar-datos-y-continuar-con-configuración"><span class="me-2">3.1.4. Comprobar datos y continuar con configuración</span><a href="#314-comprobar-datos-y-continuar-con-configuración" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
-
-<p><a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/cloudflare_setup_domain_4.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/cloudflare_setup_domain_4.webp" alt="Foto configurar dominio en Cloudflare №4" data-lqip="true" src="data:image/webp;base64,UklGRgACAABXRUJQVlA4IPQBAAAQFACdASq0AF0AP3GwzV+0rb+lpdJ8M/AuCWcIcrGZq5/vpGLh2T+NnuDMOy7eglC+G/PW31QzR4pBnlG9pTdwIPGSu3UkMDExTFFX+O45bM5kXPU3pk0m48QTJUVUdpZc+BZ06vSgEI4VUDjKfs62UNYVH0q01r452Rwsl4gUuSlvM7I0yI/kXQ91fLTrKnYWpa9hp8MiZKkiCmcTQqvFYLa5xGw2FL+AAP7yUnc7dJBacO25ZlRVFIwv7EjmOdEkhLAAa9qe2/XmM85do3IDrF0hLifPrhXgO/Sh9i6n22Q1lp4kp2yc2GiMIM+nhX4IC7dCgkLx+rqdIWRQz6mca2KrSzM1BQ6kYCY/O1lQhk009hfO/mkknaua6sfBMt9yV3aLMeAPDSJNGxSZoGfgkdIigvwydxw8cP1WXNk+XHehZA188E/cH10m+MwjSUK9HyMr8pwtIo6JFQ1OxGx2OUuzv9POetyLGu/C6Vu9Izb5w1kJ57DIUAeMVhL6ebF5e4cXVi0XH6zWuFGdUmdfESXu1lIM387uKbvXX7+xKUskL9wOSvAO6g2T2RnSF1uWn2LHVVoag7gmmXM+bE+SzzUOoH40kymixGgiuLGKE2gSKHETm+ETY2M2n7l+lvQC456fYhcMm61IBHoX3SHelcAAAA=="></a></p>
-
-<h4 id="315-copiar-servidores-ns"><span class="me-2">3.1.5. Copiar servidores NS</span><a href="#315-copiar-servidores-ns" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
-
-<p>Aqui hay instrucciónes necesarias.</p>
-
-<p><a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/cloudflare_setup_domain_5.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/cloudflare_setup_domain_5.webp" alt="Foto configurar dominio en Cloudflare №5" data-lqip="true" src="data:image/webp;base64,UklGRuQBAABXRUJQVlA4INgBAAAwEgCdASq0AFwAP3GszF+0rKilp5PLypAuCWc7Qvz51qCci6ZVCqDy/tEOIeDORevNPLZQ3/86lvrbdH+keQQc97VFXO2tBngv5xzMdObdyALCEa8RTv+p3C/hNkLnoOuPB4J5MvLu8KbLXuYZPbhX34Jhs7AgQB68fHW1Wc2RRN718QzFOMj9ka3Bx1kjQsnVYgKhaWXeuzoAAP7suoni4h2hleuVz/EAoxcXxXuZVWR3ti9agG5uQyz9wOwggiOEmL2kaXFoSACCKX9mpOZILgg0dW+h5WY8mhL1JsDw0/pc9W8IsLsqNoEOSgGWkfpnrfTyPSr3jqqWxe9EptZt7TiogvINAlA1hEkwaG+U3aGIPmbwJI08JnM5kBEOyyoZNGOzVyRhHcB0G7lZsDRqABvV7o9BcyNwA0g1z+bVyhhCWn9dkEM7dJwg6t/Y5iSpxYGxTXXikGEibsdPrLY3M9JsKk0KsLIlCQqHZWABfPqS3HuJHQgqJKTE4p6yMLJDIguq4BQvWwZyDzJR3ZTgrfqgkAjIv0o/L4YUtFv0rWk6mScgtZG19J/ZuHW09an7BX1wGvOvuHzGwNm2jHubKZY261+SWUXTwFVviolAroOMHyxwZgAA"></a></p>
-<blockquote class="prompt-warning">
-  <p>Los servidores NS son diferentes en cada configuración.</p>
-</blockquote>
-
-<h3 id="32-paso-del-ionos"><span class="me-2">3.2. Paso del Ionos</span><a href="#32-paso-del-ionos" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p>Ahora hay que cambiar servidores NS por defecto al servidores NS de cloudflare.</p>
-
-<h4 id="321-entrar-en-pestaña-del-dominios"><span class="me-2">3.2.1. Entrar en pestaña del dominios</span><a href="#321-entrar-en-pestaña-del-dominios" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
-
-<p><a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/ionos_setup_ns_server_1.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/ionos_setup_ns_server_1.webp" alt="Foto configurar servidores ns de ionos №1" data-lqip="true" src="data:image/webp;base64,UklGRtoBAABXRUJQVlA4IM4BAABQEQCdASq0AEgAP3GwzF20rikkqrTaapAuCWcA1MLAkjC/oUsWvf9+P7jKsts9GjiixCdp8uArCQSMzgMk0jIIZ93/A/c1jiMQQ5vPgTrgF+S4On7MTdjT8/0RovCiPjnLWgR+M07/TX+bI0BwSwgJLMe786cWKQgT3JjLmMvSR9wOfbF4khZ8z7i5CMdzKtkkUwAA/ubbjHmtiGHEm4eb4IuPdlIIafQrR7M033gbMlOzhH4wwAp7CE6p6oXEDZDmbDLCT6WdE89Co1qGycB604geReQamrNa80QisXTXM5SJi1WH376EXSXQD9hw+6zPfluO8QxvUHQW82GsdBpJ/kWSOgLP+PzAQokrihiWM/TMeDyR/jtGKCLfUxRyp4r6X5TWhM2ovdmVYfzSXtHsYsHSe1m1PKW0own8M+n1niMJmfdwtGMEHKhfI/7fs5fv+uluI8EtJ1GJmham/S5qILoyAm8toJ3vxEFw377Kz1tbZyVDmXjmPqoe5EfOUBICroOB5uUGYZK0qCPJioZVUXobM6VAyAYZaBMhDY+EgvJKm4kVHVftUDvsVOp0wEupF9IZxD+YenmErsPrmYHB5Wl/kBQl/1Wzf5IAAAA="></a></p>
-
-<h4 id="322-entrar-en-configuración-del-servidores-ns"><span class="me-2">3.2.2. Entrar en configuración del servidores NS</span><a href="#322-entrar-en-configuración-del-servidores-ns" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
-
-<p><a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/ionos_setup_ns_server_2.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/ionos_setup_ns_server_2.webp" alt="Foto configurar servidores ns de ionos №2" data-lqip="true" src="data:image/webp;base64,UklGRsABAABXRUJQVlA4ILQBAADQEgCdASq0AFIAP3Gwy100rr0kqrYK06AuCWcA1e7vP+wE6lMDPoDWQByo25rq4KofjGjxxGR4UKxzqW7EP8Vh5Y+60slAawReyzJkQDoSc6/2kTIhAoXBmP4eIPaES2A/xRTDJAZNTvsLEGgAwEJnFZ6LRHF5F1mXLpOtZz+rJnkpgeNkWU/GNNyos2ojfKktvCakU8snZMaQUsYvAoAA/uvcM7CIpmFhLOyPSboLpYVhkVtRSp46NynvUTPsMXo54nfR/tluVIZdFnfOq+0wNZW9SGjcUmFmMPkZ6i0sUbm/HoioGxWkaq3thW0etJQDZE8CsvEJKnThcTuBo4Y9E+iDIJmwybiHPqgYHrVPEBN/uhf9WpvCeB/hla788nC/o5ShLQKQtUbyL4TrqccicSDeTBrAhTcf/91dA6lbDliJrIn8UzyBf/LQt4ZHbfXjh5CGs6uERbPoXTsPiQkqUiA9kW33x0J25wXJV6YOicdJHSGCIaCn+PuRxBAaDBypZbZSVlB6n9aduF1JZ8S5uc4sfrEnavkPeSV5N5owJ3jQoPkjSNSBSCgd+5Tf/TybgAAA"></a></p>
-
-<p><a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/ionos_setup_ns_server_3.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/ionos_setup_ns_server_3.webp" alt="Foto configurar servidores ns de ionos №3" data-lqip="true" src="data:image/webp;base64,UklGRigBAABXRUJQVlA4IBwBAABQDACdASq0ADkAP3Gwy2C0rTMnqLFKgpAuCWcA1NCp2QuDqbjdKjVEbvMrUEkZGcj6ILzXsLuuF3f94IOrEDnZzzIxut/Llv2mhRo60X8IGu5SeqNxmM6QijxwprWRrKYcdUtk5OXTTAJ5UAD+6gSnUNB/HiX9tppShb3fdb95KxwTKCIg1okjUAgrz8GlLHMdOfSYVHSFR1oxsUEvFB6AXjsyTeUM/3oad2x2GZonYBZouRQ+668ZyzzfPjFhBYNodJGDNnidbOAO+0RhD+xP4reO7+wIAvf1MV4ojwkkJYwZPvaV+gbSHeTIb3IxlQ01briUyK/POqAwZvvz7A6T4VzaDki0KYaHuasVGOWBdT38jfdg6CEFygAAAA=="></a></p>
-
-<h4 id="323-asignar-servidores-ns"><span class="me-2">3.2.3. Asignar servidores NS</span><a href="#323-asignar-servidores-ns" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h4>
-
-<p><a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/ionos_setup_ns_server_4.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/ionos_setup_ns_server_4.webp" alt="Foto configurar servidores ns de ionos №4" data-lqip="true" src="data:image/webp;base64,UklGRhQBAABXRUJQVlA4IAgBAACQCgCdASq0ADcAP3Gy0WC0raonp1RpupAuCWcA1BytMMRKjIUkccYQrm3Zl4phfEJ2P8C+5IZsfjnGL34Xkh3a4fWcDYJp6c4jHfRQVx8003IdCKD1+VxVaFW7hQAA/vZdRQnK3YdUWKWQZPLcC75CXwoShrOKZzP1rMNoAMgg8bP5S20vRmxXPxieyyJJwifcvjnEhwObRQecBdycvyu04vkrAziIgWEgYL9gZKbGAgH7JisYEh+bVcD1UvYfo2LGlCK37QJeONxMdagADibDBEC+KaIIFnYUH6mxtxBxzoc1ul0zsHaju4LtHP5/dG0iRKKS0tIjQn/rbRT2E0ssAItecgyAAAA="></a></p>
-
-<p><a href="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/ionos_setup_ns_server_5.webp" class="popup img-link blur"><img data-src="/assets/posts/2026-01-03-transfer-domain-to-cloudflare/ionos_setup_ns_server_5.webp" alt="Foto configurar servidores ns de ionos №5" data-lqip="true" src="data:image/webp;base64,UklGRhQBAABXRUJQVlA4IAgBAAAQCgCdASq0ADAAP3Gszl80rKknKPTacpAuCWcvlt9odv2OYN4fu842UT7wolNx1b4lINbzm3HQblnUTIhIaGbto4v8jKojGpsqWKrfcbkJVwXV+9K7o2+NkAD+1ePmMYQqp1cIjgDIr8SFKHxIAPsJQA27HfGHZUK9bMgekhsauvh8mdLAOtIKwlguPzX/UVtws9krhPDIFRHhNEnYcDm4wu+YW29PD8MXrvyURUsGZgKnRjjYwjTAAOpKEYaNFqsAW2ydoSEDkiAkMzSF8r5cy5gB8N4L5RKzBRjlgDE8b/dGNslrAtDdS8T5rdZWRAmiuWmaCcxMzrnnImpFcmU3K4ql3ggAAAA="></a></p>
-
-<blockquote class="prompt-info">
-  <p>Tiempo de asignación de los servidores NS puede tardar hasta 48 horas.</p>
-
-  <p>En mi caso ha tardado menos de 3 horas.</p>
-</blockquote>
-
-<p>.</p>
 
   </div>
 
@@ -1874,7 +1174,7 @@
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
         
-          <a href="/categories/dns/">DNS</a>
+          <a href="/categories/homelab/">homelab</a>
       </div>
     
 
@@ -1884,14 +1184,9 @@
         <i class="fa fa-tags fa-fw me-1"></i>
         
           <a
-            href="/tags/dominio/"
+            href="/tags/applitools-test/"
             class="post-tag no-text-decoration"
-          >dominio</a>
-        
-          <a
-            href="/tags/cloudflare/"
-            class="post-tag no-text-decoration"
-          >cloudflare</a>
+          >applitools-test</a>
         
       </div>
     
@@ -1927,21 +1222,21 @@
 
       
 
-      <a href="https://twitter.com/intent/tweet?text=Transferir%20gesti%C3%B3n%20de%20dominio%20a%20Cloudflare%20-%20Artem&url=arteza.es%2Fposts%2Ftransfer-domain-to-cloudflare%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
+      <a href="https://twitter.com/intent/tweet?text=Applitools%20-%20Artem&url=arteza.es%2Fposts%2Ftraefik-copy-test%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter" aria-label="Twitter">
         <i class="fa-fw fa-brands fa-square-x-twitter"></i>
       </a>
     
 
       
 
-      <a href="https://www.facebook.com/sharer/sharer.php?title=Transferir%20gesti%C3%B3n%20de%20dominio%20a%20Cloudflare%20-%20Artem&u=arteza.es%2Fposts%2Ftransfer-domain-to-cloudflare%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?title=Applitools%20-%20Artem&u=arteza.es%2Fposts%2Ftraefik-copy-test%2F" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook" aria-label="Facebook">
         <i class="fa-fw fab fa-facebook-square"></i>
       </a>
     
 
       
 
-      <a href="https://t.me/share/url?url=arteza.es%2Fposts%2Ftransfer-domain-to-cloudflare%2F&text=Transferir%20gesti%C3%B3n%20de%20dominio%20a%20Cloudflare%20-%20Artem" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
+      <a href="https://t.me/share/url?url=arteza.es%2Fposts%2Ftraefik-copy-test%2F&text=Applitools%20-%20Artem" target="_blank" rel="noopener" data-bs-toggle="tooltip" data-bs-placement="top" title="Telegram" aria-label="Telegram">
         <i class="fa-fw fab fa-telegram"></i>
       </a>
     
@@ -2397,6 +1692,18 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
     
 
 
@@ -2407,6 +1714,42 @@
 
 
 
+
+  <aside id="related-posts" aria-labelledby="related-label">
+    <h3 class="mb-4" id="related-label">Lecturas adicionales</h3>
+    <nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        <article class="col">
+          <a href="/posts/traefik/" class="post-preview card h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+<time
+  
+  data-ts="1767466801"
+  data-df="DD/MM/YYYY"
+  
+>
+  03/01/2026
+</time>
+
+              <h4 class="pt-0 my-2">EN CURSO Traefik - proxy inverso</h4>
+              <div class="text-muted">
+                <p>1. ¿Que es un proxy inverso?  Proxy inverso es un servidor intermediario que se sitúa delante de uno o varios servidores web y recibe las peticiones de los clientes  En lugar de que el cliente se c...</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      
+    </nav>
+  </aside>
+  <!-- #related-posts -->
 
 
             
@@ -2419,22 +1762,18 @@
 
   
     <a
-      href="/posts/about-markdown/"
+      href="/posts/traefik/"
       class="btn btn-outline-primary"
       aria-label="Anterior"
     >
-      <p>Markdown - lenguaje de marcado ligero</p>
+      <p>EN CURSO Traefik - proxy inverso</p>
     </a>
   
 
   
-    <a
-      href="/posts/traefik/"
-      class="btn btn-outline-primary"
-      aria-label="Nuevo"
-    >
-      <p>EN CURSO Traefik - proxy inverso</p>
-    </a>
+    <div class="btn btn-outline-primary disabled" aria-label="Nuevo">
+      <p>-</p>
+    </div>
   
 </nav>
 
