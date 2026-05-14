@@ -4,7 +4,7 @@
   <id>arteza.es/</id>
   <title>Artem</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2026-05-13T14:31:06+02:00</updated>
+  <updated>2026-05-14T09:26:55+02:00</updated>
   <author>
     <name>Artem Zatsarnyi</name>
     <uri>arteza.es/</uri>
@@ -38,7 +38,7 @@
     
   
 
-  <summary>1. ¿Que es un proxy inverso?  Proxy inverso es un servidor intermediario que se sitúa delante de uno o varios servidores web y recibe las peticiones de los clientes  En lugar de que el cliente se comunique directamente con el servidor real, habla con el proxy inverso, y este se encarga de reenviar la solicitud al servidor adecuado y devolver la respuesta.  2. ¿Que es Traefik y para que sirve?  ...</summary>
+  <summary>aaa  1. ¿Que es un proxy inverso?  Proxy inverso es un servidor intermediario que se sitúa delante de uno o varios servidores web y recibe las peticiones de los clientes  En lugar de que el cliente se comunique directamente con el servidor real, habla con el proxy inverso, y este se encarga de reenviar la solicitud al servidor adecuado y devolver la respuesta.  2. ¿Que es Traefik y para que sir...</summary>
 
   </entry>
 
